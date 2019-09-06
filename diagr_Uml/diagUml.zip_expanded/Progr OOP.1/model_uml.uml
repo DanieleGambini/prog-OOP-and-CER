@@ -209,4 +209,5 @@
     <ownedOperation xmi:id="_Oug78NCaEemHN-KA6-htNA" name="Operation_6"/>
     <ownedOperation xmi:id="_AE3DkNCdEemHN-KA6-htNA" name="Operation_7"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_iG7mgNC4EemfPseugpsiUw" name="NewModel Subject"/>
 </uml:Model>

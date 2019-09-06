@@ -132,6 +132,21 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_v4h_8dCREemHN-KA6-htNA" fontColor="7490599" fontName="Segoe UI"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v4h_8tCREemHN-KA6-htNA" x="492" y="395" width="140" height="47"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_YVuLINC4EemfPseugpsiUw" type="Note" fontName="Segoe UI" description="via Azure" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YVuyMNC4EemfPseugpsiUw" source="specificStyles">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YVuyMdC4EemfPseugpsiUw" key="verticalAlignment" value="8"/>
+          </eAnnotations>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_YV2G8NC4EemfPseugpsiUw" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_YV2G8dC4EemfPseugpsiUw" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_YVuyMtC4EemfPseugpsiUw" textAlignment="Center"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_YVuyM9C4EemfPseugpsiUw"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YVuyNNC4EemfPseugpsiUw" x="516" y="528" width="157" height="43"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_QjblQtCREemHN-KA6-htNA"/>
         <edges xmi:type="notation:Edge" xmi:id="_81e-hNCREemHN-KA6-htNA" type="4001" element="_81VNgNCREemHN-KA6-htNA" source="_vMR97NCREemHN-KA6-htNA" target="_rwgakNCREemHN-KA6-htNA">
           <children xmi:type="notation:Node" xmi:id="_81e-iNCREemHN-KA6-htNA" type="6001">
