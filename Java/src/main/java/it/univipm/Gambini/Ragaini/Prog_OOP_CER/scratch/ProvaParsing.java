@@ -3,6 +3,7 @@ package it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -19,16 +20,47 @@ public class ProvaParsing {
 	final static String SEMICOLON_DELIMITER = ";";
 	final static String ENDLINE_DELIMITER = "\n";
 
-	public static void main (String[] args) {
-
-		//Double ar = new Double(new double[], {1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,4.852 ,0 ,0 ,0 ,0});
-		//Ref_Class_mod r = new Ref_Class_mod("A","EU28","MEUR_KP_PRE", ar);
+	public static void main (String[] args) throws FileNotFoundException, IOException {
 		
 		// Dichiarazione Strutture dati
-		Ref_Class_mod element = null;
 		List<List<String>> list = new ArrayList<>();
+		List<String> list1= new ArrayList<>();
 		Vector<Ref_Class_mod> vector = new Vector<Ref_Class_mod>();
 
+		String[] = first_line;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
 		// Apertura FileStream
 		try {
 			FileInputStream fileIn = new FileInputStream("dataset.csv");
@@ -44,12 +76,24 @@ public class ProvaParsing {
 			c.printStackTrace();
 			return;
 		}
-
+*/
 		// Lettura da FileStream
 		try (BufferedReader buffer_reader = new BufferedReader(new FileReader("dataset.csv"))) {
 			String line;
+			 
+			String first_line = new String();
+			first_line = buffer_reader.readLine();
+			list1.addAll(Arrays.asList(first_line.split(SEMICOLON_DELIMITER)));
+			String t = list1.get(list1.size()-1).toString();
+			list1.remove(list1.size()-1);
+			list1.addAll(Arrays.asList(t.split(COMMA_DELIMITER)));
+			
+		}
+			
+			/*
 			while ((line = buffer_reader.readLine()) != null ) {
-				String[] values = line.split(COMMA_DELIMITER);
+				String[] values = line.split(SEMICOLON_DELIMITER);
+				values += line.split(COMMA_DELIMITER);
 				System.out.println(values.length);
 				list.add(Arrays.asList(values));
 				Double[] a = { Double.parseDouble(values[4]), Double.parseDouble(values[5]), Double.parseDouble(values[6]), Double.parseDouble(values[7]), Double.parseDouble(values[8]), Double.parseDouble(values[9]), Double.parseDouble(values[10]), Double.parseDouble(values[11]), Double.parseDouble(values[12]), Double.parseDouble(values[13]), Double.parseDouble(values[14]), Double.parseDouble(values[15]), Double.parseDouble(values[16]), Double.parseDouble(values[17]), Double.parseDouble(values[18]), Double.parseDouble(values[19]), Double.parseDouble(values[20]), Double.parseDouble(values[21]), };
@@ -91,5 +135,5 @@ public class ProvaParsing {
 		return values;
 	}
 
-
-}
+*/
+	}}

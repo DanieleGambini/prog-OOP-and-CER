@@ -1,11 +1,9 @@
 package it.univipm.Gambini.Ragaini.Prog_OOP_CER;
 
 import org.springframework.boot.SpringApplication;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.ProvaParsing;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Parsing;
 
 @SpringBootApplication
 public class ProgOopCerApplication {
@@ -19,8 +17,8 @@ public class ProgOopCerApplication {
 		System.out.println("done." + "check the folder");
 		*/
 		
-		ProvaParsing.main(args);
-		
+		//ProvaParsing.main(args);
+		Parsing.main(args);
 	}
 
 }
