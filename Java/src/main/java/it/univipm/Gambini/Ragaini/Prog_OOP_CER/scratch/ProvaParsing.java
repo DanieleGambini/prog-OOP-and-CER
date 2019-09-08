@@ -26,39 +26,7 @@ public class ProvaParsing {
 		List<List<String>> list = new ArrayList<>();
 		List<String> list1= new ArrayList<>();
 		Vector<Ref_Class_mod> vector = new Vector<Ref_Class_mod>();
-
-		String[] = first_line;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		String line = new String();
 		
 		/*
 		// Apertura FileStream
@@ -75,22 +43,18 @@ public class ProvaParsing {
 			System.out.println("Class not found");
 			c.printStackTrace();
 			return;
-		}
-*/
+		}*/
+		/*
 		// Lettura da FileStream
 		try (BufferedReader buffer_reader = new BufferedReader(new FileReader("dataset.csv"))) {
-			String line;
-			 
-			String first_line = new String();
-			first_line = buffer_reader.readLine();
-			list1.addAll(Arrays.asList(first_line.split(SEMICOLON_DELIMITER)));
+			line = buffer_reader.readLine();
+			list1.addAll(Arrays.asList(line.split(SEMICOLON_DELIMITER)));
 			String t = list1.get(list1.size()-1).toString();
 			list1.remove(list1.size()-1);
 			list1.addAll(Arrays.asList(t.split(COMMA_DELIMITER)));
 			
 		}
 			
-			/*
 			while ((line = buffer_reader.readLine()) != null ) {
 				String[] values = line.split(SEMICOLON_DELIMITER);
 				values += line.split(COMMA_DELIMITER);
@@ -100,12 +64,7 @@ public class ProvaParsing {
 				vector.add(new Ref_Class_mod(values[0].charAt(0),values[1], values[2], a)); //da riempire
 			}
 			buffer_reader.close();
-
-		} catch (IOException i) {
-			i.printStackTrace();
-			return;
-		}
-
+*/
 		//Print function
 		for (Object item: vector) {
 			System.out.println(item);
@@ -135,5 +94,5 @@ public class ProvaParsing {
 		return values;
 	}
 
-*/
-	}}
+
+}

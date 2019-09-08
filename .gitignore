@@ -1,5 +1,8 @@
-### uml designer ### 
-
+### UML Designer ###
 diagr_Uml/.metadata
-
 /.metadata/
+
+### Eclipse ###
+
+.metadata
+java/.metadata
