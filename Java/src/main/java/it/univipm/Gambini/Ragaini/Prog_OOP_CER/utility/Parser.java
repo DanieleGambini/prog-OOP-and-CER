@@ -16,7 +16,7 @@ public class Parser {
 	final static String COMMA_DELIMITER = ",";
 	final static String SEMICOLON_DELIMITER = ";";
 
-	public static void parse (String[] args) {
+	public static void main (String[] args) {
 		
 		// Dichiarazione Strutture dati
 		Vector<Data> data_vector = new Vector<Data>();
@@ -29,12 +29,11 @@ public class Parser {
 			String tmp1 = tmp.substring(0,tmp.indexOf(','));
 			semicolon_parse[semicolon_parse.length-1] = tmp1;
 			String tmp2 = tmp.substring(tmp.indexOf(',') + 1);
-			String[] comma_parse = tmp2.split(COMMA_DELIMITER);
+			String[] comma_parse = tmp2.split(" ,");
 			System.out.println(comma_parse);
-			Integer[] int_comma_parse = Arrays.stream(comma_parse).map(Integer::valueOf).toArray(Integer[]::new);
-			Double[] double_comma_parse = null;
+			Double[] double_comma_parse = Arrays.stream(comma_parse).map(Double::valueOf).toArray(Double[]::new);
 			System.out.println(double_comma_parse);
-			Header header = new Header(semicolon_parse[0], semicolon_parse[1], semicolon_parse[2], semicolon_parse[3], int_comma_parse);
+			Header header = new Header(semicolon_parse[0], semicolon_parse[1], semicolon_parse[2], semicolon_parse[3], double_comma_parse);
 			
 			while ((line = buffer_reader.readLine()) != null ) {
 				semicolon_parse = line.split(SEMICOLON_DELIMITER);

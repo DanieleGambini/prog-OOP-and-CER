@@ -18,7 +18,7 @@ public class ProgOopCerApplication {
 		*/
 		
 		//ProvaParsing.main(args);
-		Parser.parse(args);
+		Parser.main(args);
 	}
 
 }

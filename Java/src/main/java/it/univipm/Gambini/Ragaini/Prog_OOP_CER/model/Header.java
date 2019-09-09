@@ -5,9 +5,9 @@ public class Header{
 	private String geo;
 	private String unit;
 	private String objective_timePeriod;
-	private Integer[] years;
+	private Double[] years;
 	
-	public Header(String freq, String geo, String unit, String objective_timePeriod, Integer[] years) {
+	public Header(String freq, String geo, String unit, String objective_timePeriod, Double[] years) {
 		this.freq = freq;
 		this.geo = geo;
 		this.unit = unit;
@@ -39,10 +39,10 @@ public class Header{
 	public String getObjective_timePeriod() {
 		return objective_timePeriod;
 	}
-	public Integer[] getyears() {
+	public Double[] getyears() {
 		return years;
 	}
-	public void setyears(Integer[] years) {
+	public void setyears(Double[] years) {
 		this.years = years;
 	}
 
