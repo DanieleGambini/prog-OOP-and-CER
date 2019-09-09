@@ -1,5 +1,5 @@
 package it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch;
-
+/*
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -91,8 +91,8 @@ public class ProvaParsing {
 				values.add(rowScanner.next());
 			}
 		}
-		return values;*/
+		return values;
 	}
 
 
-}
+}*/

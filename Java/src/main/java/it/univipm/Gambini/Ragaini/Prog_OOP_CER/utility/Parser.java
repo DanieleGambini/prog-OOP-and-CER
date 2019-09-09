@@ -16,11 +16,13 @@ public class Parser {
 	final static String COMMA_DELIMITER = ",";
 	final static String SEMICOLON_DELIMITER = ";";
 
-	public static void main (String[] args) {
+	public static Dataset main (String[] args) {
 		
 		// Dichiarazione Strutture dati
 		Vector<Data> data_vector = new Vector<Data>();
 		String line = new String();
+		Header header = null;
+		Dataset dataset = null;
 		
 		try (BufferedReader buffer_reader = new BufferedReader(new FileReader("dataset.csv"))) {
 			line = buffer_reader.readLine();
@@ -30,10 +32,11 @@ public class Parser {
 			semicolon_parse[semicolon_parse.length-1] = tmp1;
 			String tmp2 = tmp.substring(tmp.indexOf(',') + 1);
 			String[] comma_parse = tmp2.split(" ,");
-			System.out.println(comma_parse);
+			//System.out.println(comma_parse);
+			Integer[] int_comma_parse = Arrays.stream(comma_parse).map(String::trim).map(Integer::valueOf).toArray(Integer[]::new);
 			Double[] double_comma_parse = Arrays.stream(comma_parse).map(Double::valueOf).toArray(Double[]::new);
-			System.out.println(double_comma_parse);
-			Header header = new Header(semicolon_parse[0], semicolon_parse[1], semicolon_parse[2], semicolon_parse[3], double_comma_parse);
+			//System.out.println(double_comma_parse);
+			header = new Header(semicolon_parse[0], semicolon_parse[1], semicolon_parse[2], semicolon_parse[3], int_comma_parse);
 			
 			while ((line = buffer_reader.readLine()) != null ) {
 				semicolon_parse = line.split(SEMICOLON_DELIMITER);
@@ -46,14 +49,16 @@ public class Parser {
 				data_vector.add(new Data(semicolon_parse[0].charAt(0), semicolon_parse[1], semicolon_parse[2], semicolon_parse[3], double_comma_parse));
 			}
 			
-			Dataset dataset = new Dataset(header, data_vector);
-			System.out.println(data_vector);
-			System.out.println(dataset);
+			dataset = new Dataset(header, data_vector);
+			//System.out.println(data_vector);
+			//System.out.println(dataset);
+			System.out.println("PARSING DONE");
 		}
 		 catch (IOException i) {
 				i.printStackTrace();
-				return;
+				return null;
 			}
+		return dataset;
 		}
 
 }
