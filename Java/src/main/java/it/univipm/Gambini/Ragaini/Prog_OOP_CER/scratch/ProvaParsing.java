@@ -64,7 +64,7 @@ public class ProvaParsing {
 				vector.add(new Ref_Class_mod(values[0].charAt(0),values[1], values[2], a)); //da riempire
 			}
 			buffer_reader.close();
-*/
+
 		//Print function
 		for (Object item: vector) {
 			System.out.println(item);
@@ -91,7 +91,7 @@ public class ProvaParsing {
 				values.add(rowScanner.next());
 			}
 		}
-		return values;
+		return values;*/
 	}
 
 

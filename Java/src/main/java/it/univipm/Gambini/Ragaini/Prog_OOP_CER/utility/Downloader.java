@@ -15,7 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
-public class Parser {
+public class Downloader {
 	
 	public static void main(String args) {
 
