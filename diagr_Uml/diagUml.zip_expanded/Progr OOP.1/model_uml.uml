@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_CoVjYNCREemHN-KA6-htNA" name="NewModel">
+  <packageImport xmi:id="_bqdUUNMTEemGH_WETi5oGQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
   <packagedElement xmi:type="uml:Actor" xmi:id="_rwXQoNCREemHN-KA6-htNA" name="User">
     <eAnnotations xmi:id="_rwXQodCREemHN-KA6-htNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <details xmi:id="_rwXQotCREemHN-KA6-htNA" key="Human"/>
@@ -210,4 +213,225 @@
     <ownedOperation xmi:id="_AE3DkNCdEemHN-KA6-htNA" name="Operation_7"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_iG7mgNC4EemfPseugpsiUw" name="NewModel Subject"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_l55OsNMREemGH_WETi5oGQ" name="Utility">
+    <packagedElement xmi:type="uml:Class" xmi:id="_wFY84NMSEemGH_WETi5oGQ" name="Parser" visibility="public">
+      <ownedAttribute xmi:id="_qBGr8NMiEemGH_WETi5oGQ" name="&quot;COMMA_DELIMITER&quot;" visibility="private" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_7HPGcNMiEemGH_WETi5oGQ" name="SEMICOLON_DELIMITER" visibility="private" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_BKEyoNMjEemGH_WETi5oGQ" name="parse" isStatic="true">
+        <ownedParameter xmi:id="_GTXnsNMjEemGH_WETi5oGQ" name="args" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ToICUNMjEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_zBuyMNMSEemGH_WETi5oGQ" name="Downloader" visibility="public">
+      <ownedOperation xmi:id="_ne8bwNMjEemGH_WETi5oGQ" name="main" isStatic="true">
+        <ownedParameter xmi:id="_rqkHoNMjEemGH_WETi5oGQ" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmOwYNMjEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_nvojINMjEemGH_WETi5oGQ" name="download" isStatic="true">
+        <ownedParameter xmi:id="_50OJ8NMjEemGH_WETi5oGQ" name="url">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_6EA5cNMjEemGH_WETi5oGQ" name="filename">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_5lmkUNMREemGH_WETi5oGQ" name="Controller">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Of79UNMfEemGH_WETi5oGQ" name="ProgOOPCerApplication" visibility="public">
+      <ownedOperation xmi:id="_ZbAjwNMfEemGH_WETi5oGQ" name="main" isStatic="true">
+        <ownedParameter xmi:id="_cQ82INMfEemGH_WETi5oGQ" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_7iE4ENMREemGH_WETi5oGQ" name="Model">
+    <packagedElement xmi:type="uml:Class" xmi:id="_HO0MANMSEemGH_WETi5oGQ" name="Dataset" visibility="public">
+      <ownedAttribute xmi:id="_aXGEcNMSEemGH_WETi5oGQ" name="header" visibility="protected" type="_NFENsNMSEemGH_WETi5oGQ"/>
+      <ownedAttribute xmi:id="_f6GaANMSEemGH_WETi5oGQ" name="data" visibility="protected" type="_XCkYoNMSEemGH_WETi5oGQ" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DIoc8NMWEemGH_WETi5oGQ" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aQihwNMYEemGH_WETi5oGQ" name="Dataset">
+        <ownedParameter xmi:id="_j-U1sNMYEemGH_WETi5oGQ" name="header" type="_NFENsNMSEemGH_WETi5oGQ" isOrdered="true" isUnique="false"/>
+        <ownedParameter xmi:id="_tSd6kNMYEemGH_WETi5oGQ" name="data" type="_XCkYoNMSEemGH_WETi5oGQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GfAbgNMZEemGH_WETi5oGQ" value="18"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_t8st4NMZEemGH_WETi5oGQ" name="getHeader"/>
+      <ownedOperation xmi:id="_1EnLwNMZEemGH_WETi5oGQ" name="setHeader">
+        <ownedParameter xmi:id="_83erINMZEemGH_WETi5oGQ" name="header" type="_NFENsNMSEemGH_WETi5oGQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_ui-qwNMZEemGH_WETi5oGQ" name="getData"/>
+      <ownedOperation xmi:id="_1Z6GUNMZEemGH_WETi5oGQ" name="setData">
+        <ownedParameter xmi:id="_GzzxYNMaEemGH_WETi5oGQ" name="data" type="_XCkYoNMSEemGH_WETi5oGQ" isUnique="false">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LkkKoNMaEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NFENsNMSEemGH_WETi5oGQ" name="Header" visibility="public">
+      <ownedAttribute xmi:id="_UxX8oNMTEemGH_WETi5oGQ" name="freq" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_xqHCgNMTEemGH_WETi5oGQ" name="geo" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_xySuINMTEemGH_WETi5oGQ" name="unit" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_x5SuANMTEemGH_WETi5oGQ" name="objective_timePeriod" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_x_0MwNMTEemGH_WETi5oGQ" name="years" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2-w9kNMUEemGH_WETi5oGQ" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_64TE0NMdEemGH_WETi5oGQ" name="Header">
+        <ownedParameter xmi:id="_sH5EMNMgEemGH_WETi5oGQ" name="freq">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_sUxCkNMgEemGH_WETi5oGQ" name="geo">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_sga48NMgEemGH_WETi5oGQ" name="unit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_swNocNMgEemGH_WETi5oGQ" name="objective_timePeriod">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_70JhsNMgEemGH_WETi5oGQ" name="years" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfCbgNMhEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_1oRdANMaEemGH_WETi5oGQ" name="getFreq"/>
+      <ownedOperation xmi:id="_1bwD8NMaEemGH_WETi5oGQ" name="setFreq">
+        <ownedParameter xmi:id="_98FtUNMaEemGH_WETi5oGQ" name="freq">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_5SLi8NMaEemGH_WETi5oGQ" name="getGeo"/>
+      <ownedOperation xmi:id="_5dW4MNMaEemGH_WETi5oGQ" name="setGeo">
+        <ownedParameter xmi:id="_tewGQNMcEemGH_WETi5oGQ" name="geo">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_1zf1kNMaEemGH_WETi5oGQ" name="getUnit"/>
+      <ownedOperation xmi:id="_1-chUNMaEemGH_WETi5oGQ" name="setUnit">
+        <ownedParameter xmi:id="_f1Sm8NMcEemGH_WETi5oGQ" name="unit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_2L2rMNMaEemGH_WETi5oGQ" name="getObjective_timePeriod"/>
+      <ownedOperation xmi:id="_5FxeoNMaEemGH_WETi5oGQ" name="setObjective_timePeriod">
+        <ownedParameter xmi:id="_m4BC0NMcEemGH_WETi5oGQ" name="objective_timePeriod">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_5n7wgNMaEemGH_WETi5oGQ" name="getYears"/>
+      <ownedOperation xmi:id="_5yD84NMaEemGH_WETi5oGQ" name="setYears">
+        <ownedParameter xmi:id="_HSiNYNMdEemGH_WETi5oGQ" name="years" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K57K0NMdEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_XCkYoNMSEemGH_WETi5oGQ" name="Data" visibility="public">
+      <ownedAttribute xmi:id="_kk504tMVEemGH_WETi5oGQ" name="freq" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kk5049MVEemGH_WETi5oGQ" name="geo" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kk504dMVEemGH_WETi5oGQ" name="unit" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kk504NMVEemGH_WETi5oGQ" name="objective_timePeriod" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_l9HlANMVEemGH_WETi5oGQ" name="data_per_years" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xc8eUNMVEemGH_WETi5oGQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xOEU0NMVEemGH_WETi5oGQ" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_t8YrMNMhEemGH_WETi5oGQ" name="Data">
+        <ownedParameter xmi:id="_t8YrMdMhEemGH_WETi5oGQ" name="freq">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_t8YrMtMhEemGH_WETi5oGQ" name="geo">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_t8YrM9MhEemGH_WETi5oGQ" name="unit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_t8YrNNMhEemGH_WETi5oGQ" name="objective_timePeriod">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_t8YrNdMhEemGH_WETi5oGQ" name="data_per_years" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t8YrNtMhEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MBD8k9MeEemGH_WETi5oGQ" name="getGeo"/>
+      <ownedOperation xmi:id="_MBD8mdMeEemGH_WETi5oGQ" name="setGeo">
+        <ownedParameter xmi:id="_MBD8mtMeEemGH_WETi5oGQ" name="geo">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MBD8m9MeEemGH_WETi5oGQ" name="getFreq"/>
+      <ownedOperation xmi:id="_MBD8lNMeEemGH_WETi5oGQ" name="setFreq">
+        <ownedParameter xmi:id="_MBD8ldMeEemGH_WETi5oGQ" name="freq">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MBD8ltMeEemGH_WETi5oGQ" name="getUnit"/>
+      <ownedOperation xmi:id="_MBD8l9MeEemGH_WETi5oGQ" name="setUnit">
+        <ownedParameter xmi:id="_MBD8mNMeEemGH_WETi5oGQ" name="unit">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MBD8ktMeEemGH_WETi5oGQ" name="getObjective_timePeriod"/>
+      <ownedOperation xmi:id="_MBD8kNMeEemGH_WETi5oGQ" name="setObjective_timePeriod">
+        <ownedParameter xmi:id="_MBD8kdMeEemGH_WETi5oGQ" name="objective_timePeriod">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_s1KPUNMfEemGH_WETi5oGQ" name="getData_per_years"/>
+      <ownedOperation xmi:id="_tUgdwNMfEemGH_WETi5oGQ" name="setData_per_years">
+        <ownedParameter xmi:id="_By_UINMgEemGH_WETi5oGQ" name="data_per_years" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GSBrQNMgEemGH_WETi5oGQ" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7FU4YNMWEemGH_WETi5oGQ" memberEnd="_7FU4YdMWEemGH_WETi5oGQ _7FVfctMWEemGH_WETi5oGQ" navigableOwnedEnd="_7FVfctMWEemGH_WETi5oGQ">
+      <ownedEnd xmi:id="_7FVfctMWEemGH_WETi5oGQ" name="datas" type="_XCkYoNMSEemGH_WETi5oGQ" aggregation="composite" association="_7FU4YNMWEemGH_WETi5oGQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7FWGgNMWEemGH_WETi5oGQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7FWGgdMWEemGH_WETi5oGQ" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_7FU4YdMWEemGH_WETi5oGQ" name="datasets" type="_HO0MANMSEemGH_WETi5oGQ" association="_7FU4YNMWEemGH_WETi5oGQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7FVfcNMWEemGH_WETi5oGQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7FVfcdMWEemGH_WETi5oGQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Z5tyoNMXEemGH_WETi5oGQ" memberEnd="_Z5tyodMXEemGH_WETi5oGQ _Z5typNMXEemGH_WETi5oGQ" navigableOwnedEnd="_Z5typNMXEemGH_WETi5oGQ">
+      <ownedEnd xmi:id="_Z5tyodMXEemGH_WETi5oGQ" name="datasets" type="_HO0MANMSEemGH_WETi5oGQ" association="_Z5tyoNMXEemGH_WETi5oGQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z5tyotMXEemGH_WETi5oGQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z5tyo9MXEemGH_WETi5oGQ" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_Z5typNMXEemGH_WETi5oGQ" name="headers" type="_NFENsNMSEemGH_WETi5oGQ" aggregation="composite" association="_Z5tyoNMXEemGH_WETi5oGQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z5typdMXEemGH_WETi5oGQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z5typtMXEemGH_WETi5oGQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_BpVKMNMSEemGH_WETi5oGQ" name="Service"/>
 </uml:Model>
