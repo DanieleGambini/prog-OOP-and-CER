@@ -23,16 +23,16 @@ public class RequestController {
 	public ResponseEntity<Object> metadataRequest() {
 		return new ResponseEntity<>(requestService.metadataRequest(), HttpStatus.OK);
 	}
-//	
-//	@RequestMapping(value = "/stats_request", method = RequestMethod.GET)
-//	public ResponseEntity<Object> statsRequest() {
-//		return new ResponseEntity<>(requestService.dataRequest(/*stats*/), HttpStatus.OK);
-//	}
-//	
-//	@RequestMapping(value = "/dataset_request", method = RequestMethod.GET)
-//	public ResponseEntity<Object> datasetRequest() {
-//		return new ResponseEntity<>(requestService.dataRequest(/*dataset.json*/), HttpStatus.OK);
-//	}
+	
+	@RequestMapping(value = "/stats_request", method = RequestMethod.GET)
+	public ResponseEntity<Object> statsRequest() {
+		return new ResponseEntity<>(requestService.statsRequest(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/help", method = RequestMethod.GET)
+	public ResponseEntity<Object> rootRequest() {
+		return new ResponseEntity<>(requestService.rootRequest(), HttpStatus.OK);
+	}
 	
 	/* ALTERNATIVAMENTE SI PUÓ FARE "/request/{data\metadata\stats\data}" 
 	@RequestMapping(value = "/products/{r}", method = RequestMethod.PUT)
