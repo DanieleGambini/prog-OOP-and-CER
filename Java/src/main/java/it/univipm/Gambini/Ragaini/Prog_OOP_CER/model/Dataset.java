@@ -27,5 +27,9 @@ public class Dataset {
 	}
 	
 
+	@Override
+	public String toString() {
+		return "[Freq" + Header.getFreq() + "Geo" + Header.getGeo();
+	}
 
 }

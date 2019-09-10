@@ -99,7 +99,6 @@
           <tags>Editor</tags>
           <tags>org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID</tags>
           <tags>removeOnHide</tags>
-          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_k3UXYNMREemGH_WETi5oGQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Class Diagram" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/DDiagram.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID&quot; name=&quot;Class Diagram&quot; partName=&quot;Class Diagram&quot; title=&quot;Class Diagram&quot; tooltip=&quot;platform:/resource/Progr%20OOP.1/representations.aird/Class Diagram&quot;>&#xD;&#xA;&lt;input REP_DESC_URI=&quot;platform:/resource/Progr%20OOP.1/representations.aird#_ksmVINMREemGH_WETi5oGQ&quot; SESSION_RESOURCE_URI=&quot;platform:/resource/Progr%20OOP.1/representations.aird&quot; bundle=&quot;org.eclipse.sirius.ui&quot; class=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInput&quot; factoryID=&quot;org.eclipse.sirius.ui.business.api.session.SessionEditorInputFactory&quot; name=&quot;Class Diagram&quot; uri=&quot;platform:/resource/Progr%20OOP.1/representations.aird#_ktMLAdMREemGH_WETi5oGQ&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -165,7 +164,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_BfED0NC1EemGVryAyDi0qQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ce_ah9MREemGH_WETi5oGQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_BNGKQdC1EemGVryAyDi0qQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_BLUBYNMmEemAlYnynIYEnQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_BNGKQdC1EemGVryAyDi0qQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_BfED0dC1EemGVryAyDi0qQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -183,7 +182,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_BfED1dC1EemGVryAyDi0qQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ce_akdMREemGH_WETi5oGQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_BNFjFNC1EemGVryAyDi0qQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_BLUBatMmEemAlYnynIYEnQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_BNFjFNC1EemGVryAyDi0qQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_BfED1tC1EemGVryAyDi0qQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

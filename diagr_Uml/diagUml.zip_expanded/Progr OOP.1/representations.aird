@@ -2043,7 +2043,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_J-Zs0NMUEemGH_WETi5oGQ" name="years : Integer[..] [1..*]">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_J-Zs0NMUEemGH_WETi5oGQ" name="years : Integer [1..*]">
           <target xmi:type="uml:Property" href="model_uml.uml#_x_0MwNMTEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Property" href="model_uml.uml#_x_0MwNMTEemGH_WETi5oGQ"/>
           <ownedStyle xmi:type="diagram:Square" uid="_J-aT4NMUEemGH_WETi5oGQ" labelAlignment="LEFT">
@@ -2051,7 +2051,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_ANYTJdMeEemGH_WETi5oGQ" name="Header(freq : String, geo : String, unit : String, objective_timePeriod : String, years : Integer[..])">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_ANYTJdMeEemGH_WETi5oGQ" name="Header(freq : String, geo : String, unit : String, objective_timePeriod : String, years : Integer)">
           <target xmi:type="uml:Operation" href="model_uml.uml#_64TE0NMdEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Operation" href="model_uml.uml#_64TE0NMdEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Parameter" href="model_uml.uml#_70JhsNMgEemGH_WETi5oGQ"/>
@@ -2140,7 +2140,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_KjVhsNMbEemGH_WETi5oGQ" name="setYears(years : Integer[..])">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_KjVhsNMbEemGH_WETi5oGQ" name="setYears(years : Integer)">
           <target xmi:type="uml:Operation" href="model_uml.uml#_5yD84NMaEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Operation" href="model_uml.uml#_5yD84NMaEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Parameter" href="model_uml.uml#_HSiNYNMdEemGH_WETi5oGQ"/>
@@ -2193,7 +2193,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_A_HyxNMWEemGH_WETi5oGQ" name="data_per_years : double[..] [1..*]">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_A_HyxNMWEemGH_WETi5oGQ" name="data_per_years : double [1..*]">
           <target xmi:type="uml:Property" href="model_uml.uml#_l9HlANMVEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Property" href="model_uml.uml#_l9HlANMVEemGH_WETi5oGQ"/>
           <ownedStyle xmi:type="diagram:Square" uid="_A_IZ0NMWEemGH_WETi5oGQ" labelAlignment="LEFT">
@@ -2201,7 +2201,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_t8-hPdMhEemGH_WETi5oGQ" name="Data(freq : String, geo : String, unit : String, objective_timePeriod : String, data_per_years : double[..])">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_t8-hPdMhEemGH_WETi5oGQ" name="Data(freq : String, geo : String, unit : String, objective_timePeriod : String, data_per_years : double)">
           <target xmi:type="uml:Operation" href="model_uml.uml#_t8YrMNMhEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Operation" href="model_uml.uml#_t8YrMNMhEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Parameter" href="model_uml.uml#_t8YrNdMhEemGH_WETi5oGQ"/>
@@ -2290,7 +2290,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_3f-zRtMfEemGH_WETi5oGQ" name="setData_per_years(data_per_years : double[..])">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_3f-zRtMfEemGH_WETi5oGQ" name="setData_per_years(data_per_years : double)">
           <target xmi:type="uml:Operation" href="model_uml.uml#_tUgdwNMfEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Operation" href="model_uml.uml#_tUgdwNMfEemGH_WETi5oGQ"/>
           <semanticElements xmi:type="uml:Parameter" href="model_uml.uml#_By_UINMgEemGH_WETi5oGQ"/>
