@@ -26,10 +26,10 @@ public class Dataset {
 		this.data = data;
 	}
 	
-
+/*
 	@Override
 	public String toString() {
 		return "[Freq" + Header.getFreq() + "Geo" + Header.getGeo();
 	}
-
+*/
 }

@@ -2,9 +2,9 @@ package it.univipm.Gambini.Ragaini.Prog_OOP_CER.service;
 
 //import java.util.Vector;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.ParseException;
+//import org.json.simple.JSONObject;
+//import org.json.simple.JSONValue;
+//import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 //import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
@@ -20,16 +20,18 @@ public class ServiceImplementation implements RequestService{
 		System.out.println("End ServiceImplementation");
 	}
 	
-	@Override
-	public JSONObject datasetRequest() {
+	//@Override
+	public String datasetRequest() {
 		System.out.println("DataSetRequest function");
-		JSONObject json_dataset = null;
+		String json_dataset = Parser.main(null).toString();
+		/*JSONObject json_dataset = null;
 		try {
+			
 			json_dataset = (JSONObject) JSONValue.parseWithException(Parser.main(null).toString());
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		System.out.println("End DataSetRequest function");
 		return json_dataset;
 		
