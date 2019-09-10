@@ -2,7 +2,8 @@ package it.univipm.Gambini.Ragaini.Prog_OOP_CER;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.ClassToJsonConversion;;
+
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;;
 
 @SpringBootApplication
 public class ProgOopCerApplication {
@@ -17,8 +18,8 @@ public class ProgOopCerApplication {
 		*/
 		
 		//ProvaParsing.main(args);
-		//Parser.main(args);
-		ClassToJsonConversion.CtJc();
+		Parser.main(args);
+		//ClassToJsonConversion.CtJc();
 	}
 
 }
