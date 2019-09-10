@@ -16,13 +16,13 @@ public class RequestController {
 	
 	@RequestMapping(value = "/data_request", method = RequestMethod.GET)
 	public ResponseEntity<Object> dataRequest() {
-		return new ResponseEntity<>(requestService.datasetRequest(/*dataset*/), HttpStatus.OK);
+		return new ResponseEntity<>(requestService.dataRequest(), HttpStatus.OK);
 	}
 	
-//	@RequestMapping(value = "/metadata_request", method = RequestMethod.GET)
-//	public ResponseEntity<Object> metadataRequest() {
-//		return new ResponseEntity<>(requestService.dataRequest(/*metadata*/), HttpStatus.OK);
-//	}
+	@RequestMapping(value = "/metadata_request", method = RequestMethod.GET)
+	public ResponseEntity<Object> metadataRequest() {
+		return new ResponseEntity<>(requestService.metadataRequest(), HttpStatus.OK);
+	}
 //	
 //	@RequestMapping(value = "/stats_request", method = RequestMethod.GET)
 //	public ResponseEntity<Object> statsRequest() {

@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 
 import org.json.simple.JSONArray;
@@ -18,7 +19,7 @@ import org.json.simple.parser.ParseException;
 public class Downloader {
 	
 	public static void main(String args) {
-
+		
 		String url = "";
 		url = args;
 		//if(args.length == 1)

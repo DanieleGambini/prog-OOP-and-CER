@@ -1,5 +1,9 @@
 package it.univipm.Gambini.Ragaini.Prog_OOP_CER.service;
 
+
+//import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
+
+
 //import java.util.Vector;
 
 //import org.json.simple.JSONObject;
@@ -12,10 +16,9 @@ public interface RequestService {
 	
 	//JSONObject datasetRequest(Vector<Dataset> dataset);
 	
-	public abstract void dataRequest(/*Dataset dataset*/);
-	public abstract void metadataRequest(/*Dataset dataset*/);
+	public abstract String dataRequest(/*Dataset dataset*/);
+	public abstract String metadataRequest(/*Dataset dataset*/);
 	public abstract void statsRequest(/*Dataset dataset*/);
-	public abstract String datasetRequest(/*Dataset dataset*/);
-	//public abstruct void ;
+	
 
 }
