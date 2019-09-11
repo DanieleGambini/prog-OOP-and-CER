@@ -29,7 +29,7 @@ public class RequestController {
 		return new ResponseEntity<>(requestService.statsRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/help", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<Object> rootRequest() {
 		return new ResponseEntity<>(requestService.rootRequest(), HttpStatus.OK);
 	}

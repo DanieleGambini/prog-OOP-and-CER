@@ -2,7 +2,7 @@ from flask import Flask
 from flask import make_response
 import json
 import urllib
-from class import *
+#from class import *
 
 # Application instance
 app = Flask(__name__)
@@ -27,5 +27,5 @@ def statsRequest():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 

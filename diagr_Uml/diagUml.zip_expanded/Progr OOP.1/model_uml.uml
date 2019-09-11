@@ -417,6 +417,9 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_5lmkUNMREemGH_WETi5oGQ" name="Controller">
       <packagedElement xmi:type="uml:Class" xmi:id="_vNCwYNRWEemBMeoOHf801Q" name="Request controller" visibility="public">
+        <ownedAttribute xmi:id="_IAd60NRkEem1R8pfmivmOg" name="requestService" visibility="private">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_x60c4NRkEem1R8pfmivmOg"/>
+        </ownedAttribute>
         <ownedOperation xmi:id="_DJzZwNRXEemBMeoOHf801Q" name="dataRequest"/>
         <ownedOperation xmi:id="_D1CIENRXEemBMeoOHf801Q" name="metadataRequest"/>
       </packagedElement>
