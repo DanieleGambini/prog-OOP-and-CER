@@ -213,47 +213,6 @@
     <ownedOperation xmi:id="_AE3DkNCdEemHN-KA6-htNA" name="Operation_7"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_iG7mgNC4EemfPseugpsiUw" name="NewModel Subject"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_l55OsNMREemGH_WETi5oGQ" name="Utility">
-    <packagedElement xmi:type="uml:Class" xmi:id="_wFY84NMSEemGH_WETi5oGQ" name="Parser" visibility="public">
-      <ownedAttribute xmi:id="_qBGr8NMiEemGH_WETi5oGQ" name="&quot;COMMA_DELIMITER&quot;" visibility="private" isStatic="true">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_7HPGcNMiEemGH_WETi5oGQ" name="SEMICOLON_DELIMITER" visibility="private" isStatic="true">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedOperation xmi:id="_BKEyoNMjEemGH_WETi5oGQ" name="parse" isStatic="true">
-        <ownedParameter xmi:id="_GTXnsNMjEemGH_WETi5oGQ" name="args" isUnique="false">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ToICUNMjEemGH_WETi5oGQ" value="*"/>
-        </ownedParameter>
-      </ownedOperation>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_zBuyMNMSEemGH_WETi5oGQ" name="Downloader" visibility="public">
-      <ownedOperation xmi:id="_ne8bwNMjEemGH_WETi5oGQ" name="main" isStatic="true">
-        <ownedParameter xmi:id="_rqkHoNMjEemGH_WETi5oGQ" name="args">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmOwYNMjEemGH_WETi5oGQ" value="*"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:id="_nvojINMjEemGH_WETi5oGQ" name="download" isStatic="true">
-        <ownedParameter xmi:id="_50OJ8NMjEemGH_WETi5oGQ" name="url">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-        <ownedParameter xmi:id="_6EA5cNMjEemGH_WETi5oGQ" name="filename">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-      </ownedOperation>
-    </packagedElement>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_5lmkUNMREemGH_WETi5oGQ" name="Controller">
-    <packagedElement xmi:type="uml:Class" xmi:id="_Of79UNMfEemGH_WETi5oGQ" name="ProgOOPCerApplication" visibility="public">
-      <ownedOperation xmi:id="_ZbAjwNMfEemGH_WETi5oGQ" name="main" isStatic="true">
-        <ownedParameter xmi:id="_cQ82INMfEemGH_WETi5oGQ" name="args">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-      </ownedOperation>
-    </packagedElement>
-  </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_7iE4ENMREemGH_WETi5oGQ" name="Model">
     <packagedElement xmi:type="uml:Class" xmi:id="_HO0MANMSEemGH_WETi5oGQ" name="Dataset" visibility="public">
       <ownedAttribute xmi:id="_aXGEcNMSEemGH_WETi5oGQ" name="header" visibility="protected" type="_NFENsNMSEemGH_WETi5oGQ"/>
@@ -433,5 +392,66 @@
       </ownedEnd>
     </packagedElement>
   </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_BpVKMNMSEemGH_WETi5oGQ" name="Service"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_ApjG8NO8Eemp4Ja2ZLm_Ew" name="ProgOopCerApplication">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Of79UNMfEemGH_WETi5oGQ" name="ProgOOPCerApplication" visibility="public">
+      <ownedOperation xmi:id="_ZbAjwNMfEemGH_WETi5oGQ" name="main" isStatic="true">
+        <ownedParameter xmi:id="_cQ82INMfEemGH_WETi5oGQ" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_BpVKMNMSEemGH_WETi5oGQ" name="Service">
+      <packagedElement xmi:type="uml:Interface" xmi:id="_gGUzcNRXEemBMeoOHf801Q" name="RequestService" visibility="public">
+        <ownedOperation xmi:id="_rsCSUNRXEemBMeoOHf801Q" name="DataRequest" isAbstract="true"/>
+        <ownedOperation xmi:id="_sKkocNRXEemBMeoOHf801Q" name="MetadataRequest" isAbstract="true"/>
+        <ownedOperation xmi:id="_srQ6sNRXEemBMeoOHf801Q" name="StatsRequest" isAbstract="true"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Hj5xENRYEemBMeoOHf801Q" name="ServiceImplementation" visibility="public">
+        <ownedAttribute xmi:id="_VXEmANRYEemBMeoOHf801Q" name="dataset" visibility="private" type="_HO0MANMSEemGH_WETi5oGQ"/>
+        <interfaceRealization xmi:id="_24rUcNRYEemBMeoOHf801Q" client="_Hj5xENRYEemBMeoOHf801Q" supplier="_gGUzcNRXEemBMeoOHf801Q" contract="_gGUzcNRXEemBMeoOHf801Q"/>
+        <ownedOperation xmi:id="_PwILoNRYEemBMeoOHf801Q" name="ServiceImplementation"/>
+        <ownedOperation xmi:id="_pj2BUNRYEemBMeoOHf801Q" name="DataRequest"/>
+        <ownedOperation xmi:id="_qGD9kNRYEemBMeoOHf801Q" name="MetaDataRequest"/>
+        <ownedOperation xmi:id="_qnpAoNRYEemBMeoOHf801Q" name="StatsRequest"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_5lmkUNMREemGH_WETi5oGQ" name="Controller">
+      <packagedElement xmi:type="uml:Class" xmi:id="_vNCwYNRWEemBMeoOHf801Q" name="Request controller" visibility="public">
+        <ownedOperation xmi:id="_DJzZwNRXEemBMeoOHf801Q" name="dataRequest"/>
+        <ownedOperation xmi:id="_D1CIENRXEemBMeoOHf801Q" name="metadataRequest"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_l55OsNMREemGH_WETi5oGQ" name="Utility">
+      <packagedElement xmi:type="uml:Class" xmi:id="_wFY84NMSEemGH_WETi5oGQ" name="Parser" visibility="public">
+        <ownedAttribute xmi:id="_qBGr8NMiEemGH_WETi5oGQ" name="&quot;COMMA_DELIMITER&quot;" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_7HPGcNMiEemGH_WETi5oGQ" name="SEMICOLON_DELIMITER" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_BKEyoNMjEemGH_WETi5oGQ" name="parse" isStatic="true">
+          <ownedParameter xmi:id="_GTXnsNMjEemGH_WETi5oGQ" name="args" isUnique="false">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ToICUNMjEemGH_WETi5oGQ" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zBuyMNMSEemGH_WETi5oGQ" name="Downloader" visibility="public">
+        <ownedOperation xmi:id="_ne8bwNMjEemGH_WETi5oGQ" name="main" isStatic="true">
+          <ownedParameter xmi:id="_rqkHoNMjEemGH_WETi5oGQ" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmOwYNMjEemGH_WETi5oGQ" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_nvojINMjEemGH_WETi5oGQ" name="download" isStatic="true">
+          <ownedParameter xmi:id="_50OJ8NMjEemGH_WETi5oGQ" name="url">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_6EA5cNMjEemGH_WETi5oGQ" name="filename">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
 </uml:Model>
