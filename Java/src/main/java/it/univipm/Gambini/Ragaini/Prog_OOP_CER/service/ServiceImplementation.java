@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Header;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Metodi;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
 
 @Service
@@ -52,9 +53,9 @@ public class ServiceImplementation implements RequestService{
 	@Override
 	public String statsRequest() {
 		System.out.println("Start StatsRequest function");
-		
+		String metodi = Metodi.invoke_getter(dataset.getHeader());
 		System.out.println("End StatsRequest function");
-		return "cappero";
+		return metodi;
 	}
 	@Override
 	public String dataRequest() {
