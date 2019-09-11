@@ -11,6 +11,4 @@ public class Metadata {
 		this.alias = alias;
 		this.type = type;
 	}
-	
-
 }

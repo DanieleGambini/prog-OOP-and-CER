@@ -7,9 +7,9 @@ import com.google.gson.Gson;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
 
-public class ClassToJsonConversion {
+public class Proof_Conversion {
 	
-	public static void  CtJc() {
+	public static void  Proof() {
 		Vector<String> appoggio = new Vector<>();
 		Class<Ref_Class> h = Ref_Class.class;
 		Field[] fields = h.getDeclaredFields();

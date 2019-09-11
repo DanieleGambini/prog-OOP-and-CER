@@ -8,7 +8,6 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 
 import org.json.simple.JSONArray;
@@ -96,7 +95,7 @@ public class Downloader {
 	}
 	
 	/*
-	 * 
+	 *manca il commento 
 	 */
 	public static void download(String url, String fileName) throws Exception {
 	    try (InputStream in = URI.create(url).toURL().openStream()) {

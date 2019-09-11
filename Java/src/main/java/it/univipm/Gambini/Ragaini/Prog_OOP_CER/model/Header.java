@@ -1,7 +1,5 @@
 package it.univipm.Gambini.Ragaini.Prog_OOP_CER.model;
 
-import java.util.Vector;
-
 public class Header{
 	protected String freq;
 	protected String geo;
@@ -47,15 +45,4 @@ public class Header{
 	public void setyears(Integer[] years) {
 		this.years = years;
 	}
-	/*
-	public Vector<Metadata> metadataConvert(Metadata meta) {
-		Vector<Metadata> metadata = new Vector();
-		metadata.add( new Metadata());
-			//	meta.alias = freq.getClass().getName();
-		
-		
-		
-		return metadata;
-	}*/
-
 }
