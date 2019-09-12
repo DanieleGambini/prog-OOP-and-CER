@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Proof_Conversion;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
 
@@ -68,6 +69,20 @@ public class ServiceImplementation implements RequestService{
 	public String proofRequest() {
 		
 		return Proof_Conversion.Proof();
+	}
+
+
+	@Override
+	public String connectRequest() {
+		
+		return Azure.Connection();
+	}
+
+
+	@Override
+	public String average(int start_year, int end_year) {
+		
+		return Azure.average(start_year, end_year);
 	}
 
 }
