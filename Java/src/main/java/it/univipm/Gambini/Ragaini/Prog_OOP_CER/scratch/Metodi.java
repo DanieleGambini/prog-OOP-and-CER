@@ -16,10 +16,16 @@ public class Metodi {
 				Method[] methods = headerClass.getDeclaredMethods();
 				
 				for (Method method : methods) {
-					if (method.getName().startsWith("get")&&!method.getReturnType().isArray()) {
-						getterResults.add(method.invoke(header).toString());	
+					if (method.getName().startsWith("get")){
+							if(method.getReturnType().isArray()){ 
+								String appoggio = Arrays.deepToString((Object[]) method.invoke(header));
+								getterResults.add(appoggio);}
+							else
+								{getterResults.add(method.invoke(header).toString());
 						}
+						
 					}
+				}
 				
 				
 			//Log.d(getterResults.toString());
