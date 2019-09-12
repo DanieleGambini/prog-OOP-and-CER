@@ -4,15 +4,15 @@ public class Data {
 	private char freq;
 	private String geo;
 	private String unit;
-	private String objective_timePeriod;
-	private Double[] data_per_years;
+	private String objective;
+	private Double[] timePeriod;
 	
-	public Data(char freq, String geo, String unit, String objective_timePeriod, Double[] data_per_years) {
+	public Data(char freq, String geo, String unit, String objective, Double[] timePeriod) {
 		this.freq = freq;
 		this.geo = geo;
 		this.unit = unit;
-		this.objective_timePeriod = objective_timePeriod;
-		this.data_per_years = data_per_years;
+		this.objective = objective;
+		this.timePeriod = timePeriod;
 	}
 	
 	public char getFreq() {
@@ -33,17 +33,17 @@ public class Data {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public void setObjective_timePeriod(String objective_timePeriod) {
-		this.objective_timePeriod = objective_timePeriod;
+	public void setObjective(String objective) {
+		this.objective = objective;
 	}
-	public String getObjective_timePeriod() {
-		return objective_timePeriod;
+	public String getObjective() {
+		return objective;
 	}
-	public Double[] getData_per_years() {
-		return data_per_years;
+	public Double[] gettimePeriod() {
+		return timePeriod;
 	}
-	public void setData_per_years(Double[] data_per_years) {
-		this.data_per_years = data_per_years;
+	public void settimePeriod(Double[] timePeriod) {
+		this.timePeriod = timePeriod;
 	}
 
 }

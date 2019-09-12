@@ -4,15 +4,15 @@ public class Header{
 	protected String freq;
 	protected String geo;
 	protected String unit;
-	protected String objective_timePeriod;
-	protected Integer[] years;
+	protected String objective;
+	protected Integer[] timePeriod;
 	
-	public Header(String freq, String geo, String unit, String objective_timePeriod, Integer[] years) {
+	public Header(String freq, String geo, String unit, String objective, Integer[] timePeriod) {
 		this.freq = freq;
 		this.geo = geo;
 		this.unit = unit;
-		this.objective_timePeriod = objective_timePeriod;
-		this.years = years;
+		this.objective = objective;
+		this.timePeriod = timePeriod;
 	}
 	
 	public String getFreq() {
@@ -33,16 +33,16 @@ public class Header{
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public void setObjective_timePeriod(String objective_timePeriod) {
-		this.objective_timePeriod = objective_timePeriod;
+	public void setObjective(String objective) {
+		this.objective = objective;
 	}
-	public String getObjective_timePeriod() {
-		return objective_timePeriod;
+	public String getObjective() {
+		return objective;
 	}
-	public Integer[] getyears() {
-		return years;
+	public Integer[] gettimePeriod() {
+		return timePeriod;
 	}
-	public void setyears(Integer[] years) {
-		this.years = years;
+	public void settimePeriod(Integer[] timePeriod) {
+		this.timePeriod = timePeriod;
 	}
 }
