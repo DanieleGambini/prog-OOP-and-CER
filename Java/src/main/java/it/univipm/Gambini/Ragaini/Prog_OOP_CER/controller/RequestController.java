@@ -14,24 +14,29 @@ public class RequestController {
 	@Autowired
 	RequestService requestService;
 	
-	@RequestMapping(value = "/data_request", method = RequestMethod.GET)
+	@RequestMapping(value = "/data_request", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> dataRequest() {
 		return new ResponseEntity<>(requestService.dataRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/metadata_request", method = RequestMethod.GET)
+	@RequestMapping(value = "/metadata_request", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> metadataRequest() {
 		return new ResponseEntity<>(requestService.metadataRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/stats_request", method = RequestMethod.GET)
+	@RequestMapping(value = "/stats_request", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> statsRequest() {
 		return new ResponseEntity<>(requestService.statsRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> rootRequest() {
 		return new ResponseEntity<>(requestService.rootRequest(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/proof", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<Object> proofRequest() {
+		return new ResponseEntity<>(requestService.proofRequest(), HttpStatus.OK);
 	}
 	
 	/* ALTERNATIVAMENTE SI PUÓ FARE "/request/{data\metadata\stats\data}" 
