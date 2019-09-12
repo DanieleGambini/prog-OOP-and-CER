@@ -6,6 +6,7 @@ public interface RequestService {
 	public abstract String metadataRequest();
 	public abstract String statsRequest();
 	public abstract String rootRequest();
+	public abstract String proofRequest();
 	
 
 }
