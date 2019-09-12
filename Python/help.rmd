@@ -1,6 +1,5 @@
 ---
 title: Help Page
-author: Davide Ragaini
 output: html_document
 ---
 
