@@ -246,10 +246,10 @@
       <ownedAttribute xmi:id="_xySuINMTEemGH_WETi5oGQ" name="unit" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_x5SuANMTEemGH_WETi5oGQ" name="objective_timePeriod" visibility="private">
+      <ownedAttribute xmi:id="_x5SuANMTEemGH_WETi5oGQ" name="objective" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_x_0MwNMTEemGH_WETi5oGQ" name="years" visibility="private" isUnique="false">
+      <ownedAttribute xmi:id="_x_0MwNMTEemGH_WETi5oGQ" name="timePeriod" visibility="private" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2-w9kNMUEemGH_WETi5oGQ" value="*"/>
       </ownedAttribute>
@@ -313,7 +313,7 @@
       <ownedAttribute xmi:id="_kk504dMVEemGH_WETi5oGQ" name="unit" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_kk504NMVEemGH_WETi5oGQ" name="objective_timePeriod" visibility="private">
+      <ownedAttribute xmi:id="_kk504NMVEemGH_WETi5oGQ" name="objective" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_l9HlANMVEemGH_WETi5oGQ" name="data_per_years" visibility="private" isUnique="false">
@@ -453,6 +453,20 @@
           <ownedParameter xmi:id="_6EA5cNMjEemGH_WETi5oGQ" name="filename">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_pYz_cNXsEemkOLdaUruv5w" name="Metadata" visibility="public">
+        <ownedAttribute xmi:id="_bXeWMNXtEemkOLdaUruv5w" name="alias" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_boPWENXtEemkOLdaUruv5w" name="sourceField" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_bvFk8NXtEemkOLdaUruv5w" name="type" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_UHazgNXuEemkOLdaUruv5w" name="MetadataGenerator">
+          <ownedParameter xmi:id="_cghMcNXuEemkOLdaUruv5w" type="_NFENsNMSEemGH_WETi5oGQ"/>
         </ownedOperation>
       </packagedElement>
     </packagedElement>
