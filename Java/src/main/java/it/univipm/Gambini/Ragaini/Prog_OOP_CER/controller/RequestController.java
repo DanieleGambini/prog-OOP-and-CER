@@ -46,11 +46,9 @@ public class RequestController {
 		return new ResponseEntity<>(requestService.connectRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/average/start={start_year},end={end_year}", method = RequestMethod.GET)
-	public ResponseEntity<Object> average(@PathVariable("start_year") int start_year, @PathVariable("end_year") int end_year
-			/*@PathVariable("start_year") int start_year, @PathVariable("start_year") int start_year,
-			@PathVariable("start_year") int start_year*/) {
-		return new ResponseEntity<>(Azure.average(start_year, end_year), HttpStatus.OK);
+	@RequestMapping(value = "/stats/geo={GEO}&obj={OBJ}", method = RequestMethod.GET)
+	public ResponseEntity<Object> statsRequest(@PathVariable("GEO") String geo, @PathVariable("OBJ") String obj) {
+		return new ResponseEntity<>(Azure.stats(geo,obj), HttpStatus.OK);
 	}
 	
 

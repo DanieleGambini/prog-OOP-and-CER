@@ -8,7 +8,7 @@ public interface RequestService {
 	public abstract String rootRequest();
 	public abstract String proofRequest();
 	public abstract String connectRequest();
-	public abstract String average(int start_year, int end_year);
+	public abstract String statsRequest(String geo, String obj);
 	
 
 }
