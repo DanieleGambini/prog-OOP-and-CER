@@ -80,9 +80,9 @@ public class ServiceImplementation implements RequestService{
 
 
 	@Override
-	public String average(int start_year, int end_year) {
+	public String statsRequest(String geo, String obj) {
 		
-		return Azure.average(start_year, end_year);
+		return Azure.stats(geo, obj);
 	}
 
 }
