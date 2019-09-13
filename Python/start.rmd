@@ -1,0 +1,9 @@
+---
+title: Start
+---
+
+# Server starded correctly
+
+The server is ready to process.
+
+## For Help request "/help"

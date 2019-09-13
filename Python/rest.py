@@ -2,27 +2,41 @@ from flask import Flask
 from flask import make_response
 import json
 import urllib
-#from class import *
+import sys
+from dataClass import Data
+
+def datasetConstructor():
+    dataset = Data(1,2,3,4,5)
+    return dataset
 
 # Application instance
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET'])
-def root():
-    with open('help.html') as f:
-        read_data = f.read()
-    f.close
-    return read_data
+@app.route('/start', methods = ['GET'])
+def start():
+    with open('start.html') as start:
+        read_start = start.read()
+    start.close
+    return read_start
+
+@app.route('/help', methods = ['GET'])
+def help():
+    with open('help.html') as fhelp:
+        read_help = fhelp.read()
+    fhelp.close
+    return read_help
 
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/stats_request', methods = ['GET'])
+@app.route('/data', methods = ['GET'])
 def statsRequest():
-    url = "http://127.0.0.1:8080/data_request"
-    d = urllib.request.urlopen(url).read()
-    return d
+    url = "http://127.0.0.1:8080/data"
+    data = urllib.request.urlopen(url).read()
+    #response = app.response_class(response=json.bumps(data), status=200, mimetype='application/json')
+    #return flask.jsonify(data)
+    return data
 
 
 
