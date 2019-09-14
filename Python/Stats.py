@@ -10,8 +10,12 @@ class Dataset:
         self.objective=objective
         self.timePeriod=timePeriod
 
-    def getFreq(self, value):
+    def getFreq(self):
         return self.freq
+
+    def CounterClass(self, lista):
+        n=sum(row.freq == 'A' for row in lista)
+        print(n)
 
 
 
@@ -40,36 +44,18 @@ def Parser():
         dicList.append(row)
         newObj = Dataset(row['freq'], row['geo'], row['unit'], row['objective'],row['timePeriod'])
         classList.append(newObj)
-    CounterClass(classList)
-    print()
-    CounterDict(dicList)
-    print()
-    #print(dataList)
     #return dataList
 
-def CounterClass(lista):
-    n=sum(p.freq == 'A' for p in lista)
-    '''
-    for i in range(0,100):
-        n=lista.count(lista[i].freq)'''
+
+def CounterDict(lista, key="", value=""):
+    n=sum(row[key] == value for row in lista)
     print(n)
-
-
-
-def CounterDict(lista):
-
-    n=sum(e['freq'] == 'A' for e in lista)
-    '''
-    for i in range(0,120):
-        n=lista[i]['freq']'''
-    print(n)
-
-
 '''
-def DictParser():
-    def __setitem__ (self, ):
-        if key in self:
+def Average(lista, key):
+    numOfElements = CounterDict(lista, key, value)
+    instances = sum(row[for )
 '''
+
 
 #Downloader()
 Parser()
