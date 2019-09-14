@@ -10,6 +10,10 @@ class Dataset:
         self.objective=objective
         self.timePeriod=timePeriod
 
+    def getFreq(self, value):
+        return self.freq
+
+
 
 def Downloader(url="http://127.0.0.1:8080/data"):
     dataset = ""
@@ -27,17 +31,47 @@ def Downloader(url="http://127.0.0.1:8080/data"):
     return dataset
 
 def Parser():
-    dataList =[]
+    dicList =[]
+    classList =[]
+    row = []
     with open("dataset.json",'r') as file:
         parse = json.load(file)
     for row in parse:
-        #print(row)
-        newObj = Dataset(row[0],row[1],row[4],row[2],row[3])
-        dataList.append(newObj)
+        dicList.append(row)
+        newObj = Dataset(row['freq'], row['geo'], row['unit'], row['objective'],row['timePeriod'])
+        classList.append(newObj)
+    CounterClass(classList)
+    print()
+    CounterDict(dicList)
+    print()
     #print(dataList)
-    return dataList
+    #return dataList
 
+def CounterClass(lista):
+    n=sum(p.freq == 'A' for p in lista)
+    '''
+    for i in range(0,100):
+        n=lista.count(lista[i].freq)'''
+    print(n)
+
+
+
+def CounterDict(lista):
+
+    n=sum(e['freq'] == 'A' for e in lista)
+    '''
+    for i in range(0,120):
+        n=lista[i]['freq']'''
+    print(n)
+
+
+'''
+def DictParser():
+    def __setitem__ (self, ):
+        if key in self:
+'''
 
 #Downloader()
-row_list = Parser()
-print(row_list)
+Parser()
+#row_list = Parser()
+#print(row_list)
