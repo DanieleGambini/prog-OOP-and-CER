@@ -2,23 +2,6 @@ import urllib.request
 import urllib.error
 import json
 
-class Dataset:
-    def __init__(self, freq, geo, unit, objective, timePeriod):
-        self.freq=freq
-        self.geo=geo
-        self.unit=unit
-        self.objective=objective
-        self.timePeriod=timePeriod
-
-    def getFreq(self):
-        return self.freq
-
-    def CounterClass(self, lista):
-        n=sum(row.freq == 'A' for row in lista)
-        print(n)
-
-
-
 def Downloader(url="http://127.0.0.1:8080/data"):
     dataset = ""
     try:
@@ -35,29 +18,33 @@ def Downloader(url="http://127.0.0.1:8080/data"):
     return dataset
 
 def Parser():
-    dicList =[]
-    classList =[]
-    row = []
+    DataList =[]
+    #row = []
     with open("dataset.json",'r') as file:
         parse = json.load(file)
     for row in parse:
-        dicList.append(row)
-        newObj = Dataset(row['freq'], row['geo'], row['unit'], row['objective'],row['timePeriod'])
-        classList.append(newObj)
-    #return dataList
+        DataList.append(row)
+    return DataList
+
+def SubsetSelector(lista, key='', value=''):
+    subset = list(row[key] == value for row in lista)
+    #filter(lista[])
+    print(subset)
+    return subset
 
 
-def CounterDict(lista, key="", value=""):
-    n=sum(row[key] == value for row in lista)
-    print(n)
+def Counter(lista, key="", value=""):
+    print(sum(row[key] == value for row in lista))
+
 '''
 def Average(lista, key):
     numOfElements = CounterDict(lista, key, value)
     instances = sum(row[for )
 '''
 
-
 #Downloader()
-Parser()
+lista = Parser()
+subset = SubsetSelector(lista,'geo','IT')
+print(subset)
 #row_list = Parser()
 #print(row_list)

@@ -1,0 +1,11 @@
+{
+    "azureFunctions.deploySubpath": "Python.zip",
+    "python.pythonPath": ".venv/bin/python",
+    "azureFunctions.pythonVenv": ".venv",
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~2",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "func: pack",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
