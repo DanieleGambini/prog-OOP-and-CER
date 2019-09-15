@@ -78,16 +78,10 @@ public class ServiceImplementation implements RequestService{
 		return Azure.Connection();
 	}
 
-
-	@Override
-	public String statsRequest(String geo, String obj) {
-		
-		return Azure.stats(geo, obj);
-	}
 	
 	@Override
-	public String statsRequestFilter(String geo, String obj) {
+	public String statsRequestFilter(String geo, String obj, String filter) {
 		
-		return Azure.stats(geo, obj);
+		return Azure.stats(geo, obj,filter);
 	}
 }

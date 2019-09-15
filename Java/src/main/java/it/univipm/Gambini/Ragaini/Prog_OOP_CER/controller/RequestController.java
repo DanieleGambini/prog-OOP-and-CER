@@ -27,11 +27,6 @@ public class RequestController {
 		return new ResponseEntity<>(requestService.metadataRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/stats", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<Object> statsRequest() {
-		return new ResponseEntity<>(requestService.statsRequest(), HttpStatus.OK);
-	}
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> rootRequest() {
 		return new ResponseEntity<>(requestService.rootRequest(), HttpStatus.OK);
@@ -47,13 +42,8 @@ public class RequestController {
 		return new ResponseEntity<>(requestService.connectRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/stats/geo={GEO}&obj={OBJ}", method = RequestMethod.GET)
-	public ResponseEntity<Object> statsRequest(@PathVariable("GEO") String geo, @PathVariable("OBJ") String obj) {
-		return new ResponseEntity<>(Azure.stats(geo,obj), HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/stats/geo={GEO}&obj={OBJ}&filter", method = RequestMethod.GET)
-	public ResponseEntity<Object> statsRequestFilter(@PathVariable("GEO") String geo, @PathVariable("OBJ") String obj, @RequestParam("FILTER") String filter) {
-		return new ResponseEntity<>(Azure.stats(geo,obj), HttpStatus.OK);
+	@RequestMapping(value = "/stats", method = RequestMethod.GET)
+	public ResponseEntity<Object> statsRequestFilter(@RequestParam(name="GEO") String geo, @RequestParam(name="OBJ") String obj, @RequestParam(name="FILTER", defaultValue="") String filter) {
+		return new ResponseEntity<>(Azure.stats(geo,obj,filter), HttpStatus.OK);
 	}
 }

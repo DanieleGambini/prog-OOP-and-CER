@@ -8,8 +8,7 @@ public interface RequestService {
 	public abstract String rootRequest();
 	public abstract String proofRequest();
 	public abstract String connectRequest();
-	public abstract String statsRequest(String geo, String obj);
-	public abstract String statsRequestFilter(String geo, String obj);
+	public abstract String statsRequestFilter(String geo, String obj, String filterS);
 	
 
 }
