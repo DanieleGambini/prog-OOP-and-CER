@@ -17,10 +17,10 @@ def main(req: func.HttpRequest) -> str:
     
 
 
-    #stringa = Parser()
+    stringa = Parser()
     json
 
-    return json.dumps(reviced_body)
+    return json.dumps(stringa)
     #return func.HttpResponse(f"{stringa}")
     #return json.dumps({'name': input.name,'length': input.length,'content': input.read().decode('utf-8')})
     

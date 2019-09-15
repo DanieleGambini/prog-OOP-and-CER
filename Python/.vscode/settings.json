@@ -1,6 +1,6 @@
 {
     "azureFunctions.deploySubpath": "Python.zip",
-    "python.pythonPath": "C:\\Users\\gambo\\AppData\\Local\\Programs\\Python\\Python36\\python.exe",
+    "python.pythonPath": ".venv/bin/python",
     "azureFunctions.pythonVenv": ".venv",
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~2",
