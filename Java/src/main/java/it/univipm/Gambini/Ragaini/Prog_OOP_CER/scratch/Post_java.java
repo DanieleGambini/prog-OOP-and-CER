@@ -12,12 +12,12 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class Post_java {
+/*public class Post_java {
 	
 	
 	/* ho raccolto qui due metodi che effettuano post via Java, spero possiamo utilizzarli per le nostre esigenze
-	 * il secondo codice mi sembra migliore
-	 */
+	  il secondo codice mi sembra migliore
+
 	private void sendPost() throws Exception {
 
 		String url = "url di prova";
@@ -26,7 +26,7 @@ public class Post_java {
 
 		//add request header
 		con.setRequestMethod("POST");
-		con.setRequestProperty("User-Agent", /*nome del browser*/);
+		con.setRequestProperty("User-Agent", nome del browser);
 		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
 		String urlParameters = "sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
@@ -93,5 +93,5 @@ public class Post_java {
 	    }
 	}
 
-
+*/
 

@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 import org.springframework.stereotype.Service;
 
@@ -80,8 +85,22 @@ public class ServiceImplementation implements RequestService{
 
 	
 	@Override
-	public String statsRequestFilter(String geo, String obj, String filter) {
-		
-		return Azure.stats(geo, obj,filter);
+	public String statsRequestFilter(String geo, String obj, String filter) throws IOException  {
+		 	    	
+		URL url = new URL("http://localhost:7071/api/HttpTrigger");
+		        
+		HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+		conn.setRequestMethod("POST");
+		conn.setRequestProperty("Content-Type", "application/json; utf-8");
+		conn.setDoOutput(true);
+		Dataset jsonInputString = Parser.main(null);
+		try(OutputStream os = conn.getOutputStream()) {
+			byte[] input = ClassTo.Json(jsonInputString).getBytes("utf-8");
+			os.write(input, 0, input.length);     
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}    
+		return "processo effettuato";
 	}
 }
