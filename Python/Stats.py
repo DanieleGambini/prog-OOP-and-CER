@@ -14,7 +14,7 @@ def Downloader(url="http://127.0.0.1:8080/data"):
     except urllib.error.URLError as e:
         print('URLError: {}'.format(e.reason))
     else:
-        print('good')
+        print('download good')
     return dataset
 
 def Parser():
@@ -26,25 +26,38 @@ def Parser():
         DataList.append(row)
     return DataList
 
-def SubsetSelector(lista, key='', value=''):
-    subset = list(row[key] == value for row in lista)
-    #filter(lista[])
-    print(subset)
-    return subset
-
+# List Comprehensions
+def SubListSelector(lista, key='', value=''):
+    sublist = [row for row in lista if row[key]==value]
+    return sublist
 
 def Counter(lista, key="", value=""):
-    print(sum(row[key] == value for row in lista))
+    return len(SubListSelector(lista, key, value))
+    #sum(row[key] == value for row in lista)
 
-'''
-def Average(lista, key):
-    numOfElements = CounterDict(lista, key, value)
-    instances = sum(row[for )
-'''
+def Average(lista, key, value, year):
+    sublist = SubListSelector(lista, key, value)
+    numOfElements = Counter(sublist, key, value)
+    som=0
+    year = year - 2000
+    for row in range(0,len(lista)):
+        som = som + sublist[row]['timePeriod'][year]
+    print(som)
+    return som/numOfElements
+    #return sum(row[key] for row in sublist)/numOfElements
+
+def StdDev(lista,key,value,year):
+    Average(lista,key,value,year)
+    
+
+
+    return stdDev
 
 #Downloader()
 lista = Parser()
-subset = SubsetSelector(lista,'geo','IT')
-print(subset)
+subset = SubListSelector(lista,'geo','IT')
+n = Counter(lista,'geo','IT')
+av = Average(subset,'geo','IT',2000)
+print(av, '\n', n)
 #row_list = Parser()
 #print(row_list)

@@ -18,7 +18,6 @@ def main(req: func.HttpRequest) -> str:
 
 
     stringa = Parser()
-    json
 
     return json.dumps(stringa)
     #return func.HttpResponse(f"{stringa}")
