@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Post_java;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Proof_Conversion;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
@@ -23,7 +24,6 @@ public class ServiceImplementation implements RequestService{
 		//Downloader.main(args);
 		dataset = Parser.main(null);
 	}
-	
 	
 	@Override
 	public String metadataRequest() {
@@ -81,7 +81,7 @@ public class ServiceImplementation implements RequestService{
 	
 	@Override
 	public String statsRequestFilter(String geo, String obj, String filter) {
-		
-		return Azure.stats(geo, obj,filter);
+		return Post_java.sendPost(geo, obj, filter);
+		//return Azure.stats(geo, obj,filter);
 	}
 }

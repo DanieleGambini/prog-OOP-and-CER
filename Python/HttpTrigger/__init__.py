@@ -1,6 +1,6 @@
 import logging
 import json
-from Stats import *
+#from Stats import *
 
 import azure.functions as func
 
@@ -9,18 +9,28 @@ import azure.functions as func
 def main(req: func.HttpRequest) -> str:
     logging.info('Submit the dataset as a POST')
     
-    url_params1 = req.params.get('name')
-    url_params2 = req.params.get('surname')
-    reviced_body = req.get_json()
-    logging.info(url_params1 + url_params2)
-    logging.info(reviced_body)
-    
+    geo = req.params.get('GEO')
+    obj = req.params.get('OBJ')
+    fil = req.params.get('filter')
+    recived_body = req.get_body()
+    logging.info(geo + '\n' + obj + '\n' + fil)
+    #logging.info(recived_body)
+    try:
+        jret = recived_body
+        dataset = str(jret)
+        dataset = dataset[3: len(dataset)-2]
+        print(dataset,file=open("dataset.json","w+"))
+    except urllib.error.HTTPError as e:        
+        print('HTTPError: {}'.format(e.code))
+    except urllib.error.URLError as e:
+        print('URLError: {}'.format(e.reason))
+    else:
+        print('download good')
 
+    #stringa = Parser()
 
-    stringa = Parser()
-
-    return json.dumps(stringa)
-    #return func.HttpResponse(f"{stringa}")
+    return json.dumps(dataset)
+    #return func.HttpResponse(f"{recived_body}")
     #return json.dumps({'name': input.name,'length': input.length,'content': input.read().decode('utf-8')})
     
     

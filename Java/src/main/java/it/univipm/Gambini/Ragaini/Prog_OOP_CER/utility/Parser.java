@@ -15,6 +15,7 @@ public class Parser {
 	
 	final static String COMMA_DELIMITER = ",";
 	final static String SEMICOLON_DELIMITER = ";";
+	static Dataset dataset;
 
 	public static Dataset main (String[] args) {
 		
@@ -22,7 +23,6 @@ public class Parser {
 		Vector<Data> data_vector = new Vector<Data>();
 		String line = new String();
 		Header header = null;
-		Dataset dataset = null;
 		
 		try (BufferedReader buffer_reader = new BufferedReader(new FileReader("dataset.csv"))) {
 			line = buffer_reader.readLine();
@@ -64,6 +64,10 @@ public class Parser {
 		
 		return dataset;
 		
+	}
+	
+	public static Dataset retriveDataset() {
+		return dataset;
 	}
 
 }
