@@ -16,7 +16,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
 
 public class Post_java {
 	
@@ -61,10 +60,9 @@ public class Post_java {
 	/* ho raccolto qui due metodi che effettuano post via Java, spero possiamo utilizzarli per le nostre esigenze
 	 * il secondo codice mi sembra migliore
 	 */
-	public static String sendPost(String geo, String obj, String filterS) {
-
-		String data = ClassTo.Json(Parser.retriveDataset().getData());
-		String urlParameters = "?GEO="+geo+"&OBJ="+obj+"&Filter="+filterS;
+	public static String sendPost(String geo, String obj, String filter, String data) {
+;
+		String urlParameters = "?GEO="+geo+"&OBJ="+obj+"&Filter="+filter;
 		byte[] postData = data.getBytes(StandardCharsets.UTF_8);
 		int postDataLength = postData.length;
 		String url = "http://localhost:7071/api/HttpTrigger"+urlParameters;
@@ -88,7 +86,6 @@ public class Post_java {
 			e.printStackTrace();
 		}
 		con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-		con.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded"); 
 		con.setRequestProperty( "charset", "utf-8");
 		con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
 		con.setRequestProperty("Accept", "application/json");
@@ -137,6 +134,7 @@ public class Post_java {
 		
 		//print result
 		//System.out.println(response.toString());
+		
 		return response.toString();
 
 	}

@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Post_java;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Proof_Conversion;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Downloader;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
 
 @Service
@@ -21,27 +21,24 @@ public class ServiceImplementation implements RequestService{
 	private Dataset dataset;
 
 	public ServiceImplementation() {
-		//Downloader.main(args);
-		dataset = Parser.main(null);
+		Downloader.main("http://data.europa.eu/euodp/data/api/3/action/package_show?id=vzo0vqtpcgMt3X8yBGTJ8Q");
+		dataset = Parser.main(dataset,"dataset.csv");
 	}
 	
 	@Override
 	public String metadataRequest() {
-		
 		return Metadata.MetadataGeneretor(dataset.getHeader());
 	}
 	
 	
 	@Override
 	public String statsRequest() {
-
 		return "{" + "}";
 	}
 	
 	
 	@Override
 	public String dataRequest() {
-		
 		return ClassTo.Json(dataset.getData());
 	}
 	
@@ -67,21 +64,12 @@ public class ServiceImplementation implements RequestService{
 	
 	@Override
 	public String proofRequest() {
-		
 		return Proof_Conversion.Proof();
-	}
-
-
-	@Override
-	public String connectRequest() {
-		
-		return Azure.Connection();
 	}
 
 	
 	@Override
 	public String statsRequestFilter(String geo, String obj, String filter) {
-		return Post_java.sendPost(geo, obj, filter);
-		//return Azure.stats(geo, obj,filter);
+		return Azure.sendPost(geo, obj, filter, ClassTo.Json(dataset.getData()));
 	}
 }

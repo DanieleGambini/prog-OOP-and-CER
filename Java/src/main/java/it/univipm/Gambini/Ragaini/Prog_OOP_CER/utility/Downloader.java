@@ -9,6 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -17,12 +18,9 @@ import org.json.simple.parser.ParseException;
 
 public class Downloader {
 
-	public static void main(String args) {
+	public static void main(String arg) {
 
-		String url = "";
-		url = args;
-		//if(args.length == 1)
-			//url = args[0]; //Url by args ;-)
+		String url = arg;
 		try {
 
 			URLConnection openConnection = new URL(url).openConnection();
@@ -98,10 +96,11 @@ public class Downloader {
 	 *manca il commento
 	 */
 	public static void download(String url, String fileName) throws Exception {
-	    try (InputStream in = URI.create(url).toURL().openStream()) {
+	    try (InputStream input = URI.create(url).toURL().openStream()) {
 	    	System.out.println("Printing file path");
-	        Files.copy(in, Paths.get(fileName));
+	        Files.copy(input, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
 	    	System.out.println(Paths.get(fileName));
+	    	input.close();
 	    }
 	}
 

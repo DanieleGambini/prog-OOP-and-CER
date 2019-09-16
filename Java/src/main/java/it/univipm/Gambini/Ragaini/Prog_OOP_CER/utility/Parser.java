@@ -15,16 +15,16 @@ public class Parser {
 	
 	final static String COMMA_DELIMITER = ",";
 	final static String SEMICOLON_DELIMITER = ";";
-	static Dataset dataset;
+	//static Dataset dataset;
 
-	public static Dataset main (String[] args) {
+	public static Dataset main (Dataset dataset, String file) {
 		
 		// Dichiarazione Strutture dati
 		Vector<Data> data_vector = new Vector<Data>();
 		String line = new String();
 		Header header = null;
 		
-		try (BufferedReader buffer_reader = new BufferedReader(new FileReader("dataset.csv"))) {
+		try (BufferedReader buffer_reader = new BufferedReader(new FileReader(file))) {
 			line = buffer_reader.readLine();
 			
 			String[] semicolon_parse = line.split(SEMICOLON_DELIMITER);
@@ -56,18 +56,13 @@ public class Parser {
 			dataset = new Dataset(header, data_vector);
 			System.out.println("PARSING DONE");
 			
-		}
-		 catch (IOException i) {
+		} catch (IOException i) {
 				i.printStackTrace();
 				return null;
 			}
 		
 		return dataset;
 		
-	}
-	
-	public static Dataset retriveDataset() {
-		return dataset;
 	}
 
 }

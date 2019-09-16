@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Post_java;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.service.RequestService;
 //import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
 
@@ -37,13 +36,8 @@ public class RequestController {
 		return new ResponseEntity<>(requestService.proofRequest(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/connect", method = RequestMethod.GET, produces = "text/html")
-	public ResponseEntity<Object> connectRequest() {
-		return new ResponseEntity<>(requestService.connectRequest(), HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/stats", method = RequestMethod.GET)
+	@RequestMapping(value = "/stats", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> statsRequestFilter(@RequestParam(name="GEO") String geo, @RequestParam(name="OBJ") String obj, @RequestParam(name="FILTER", defaultValue="") String filter) {
-		return new ResponseEntity<>(Post_java.sendPost(geo, obj, filter), HttpStatus.OK);
+		return new ResponseEntity<>(requestService.statsRequestFilter(geo, obj, filter), HttpStatus.OK);
 	}
 }
