@@ -1,6 +1,6 @@
 import logging
 import json
-#from Stats import *
+from Stats import Stats
 
 import azure.functions as func
 
@@ -13,12 +13,12 @@ def main(req: func.HttpRequest) -> str:
     obj = req.params.get('OBJ')
     fil = req.params.get('FILTER')
     recived_body = req.get_body()
-    logging.info(geo + '\n' + obj + '\n' + fil)
-    logging.info(recived_body)
+    #logging.info(geo + '\n' + obj + '\n' + fil)
+    #logging.info(recived_body)
     try:
         jret = recived_body
         dataset = str(jret)
-        dataset = dataset[3: len(dataset)-2]
+        dataset = dataset[2: len(dataset)-1]
         print(dataset,file=open("dataset.json","w+"))
     except urllib.error.HTTPError as e:        
         print('HTTPError: {}'.format(e.code))
@@ -27,29 +27,8 @@ def main(req: func.HttpRequest) -> str:
     else:
         print('download good')
 
-    #stringa = Parser()
+    f = json.loads(fil)
+    result = Stats(geo, obj, int(f['startYear']), int(f['endYear']))
 
-    return json.dumps(dataset)
-    #return func.HttpResponse(f"{recived_body}")
-    #return json.dumps({'name': input.name,'length': input.length,'content': input.read().decode('utf-8')})
-    
-    
-    
-    '''
-    print(name)
-    if not name: #se name==0
-        try:
-            req_body = body.get_json() #se non ci sono parametri prendi dal body 
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+    return json.dumps(result)
 
-    if name:
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
-        )
-'''
