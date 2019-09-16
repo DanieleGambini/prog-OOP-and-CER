@@ -1,21 +1,7 @@
 import urllib.request
 import urllib.error
 import json
-
-def Downloader(url="http://127.0.0.1:8080/data"):
-    dataset = ""
-    try:
-        jret = urllib.request.urlopen(url).readlines()
-        dataset = str(jret)
-        dataset = dataset[3: len(dataset)-2]
-        print(dataset,file=open("dataset.json","w+"))
-    except urllib.error.HTTPError as e:        
-        print('HTTPError: {}'.format(e.code))
-    except urllib.error.URLError as e:
-        print('URLError: {}'.format(e.reason))
-    else:
-        print('download good')
-    return dataset
+import math
 
 def Parser():
     DataList =[]
@@ -37,27 +23,30 @@ def Counter(lista, key="", value=""):
 
 def Average(lista, key, value, year):
     sublist = SubListSelector(lista, key, value)
-    numOfElements = Counter(sublist, key, value)
+    #numOfElements = Counter(sublist, key, value)
     som=0
     year = year - 2000
     for row in range(0,len(lista)):
         som = som + sublist[row]['timePeriod'][year]
     print(som)
-    return som/numOfElements
+    return som/len(sublist)
     #return sum(row[key] for row in sublist)/numOfElements
 
 def StdDev(lista,key,value,year):
-    Average(lista,key,value,year)
-    
-
-
-    return stdDev
+    sublist = SubListSelector(lista,key,value)
+    aritmetic_average = Average(lista,key,value,year)
+    for row in range(0,len(lista)):
+        xi = lista[row]['timePeriod'][year]
+        summation = (xi - aritmetic_average)*(xi - aritmetic_average)
+    stDev = math.sqrt(summation/len(sublist))
+    return stDev
 
 #Downloader()
 lista = Parser()
 subset = SubListSelector(lista,'geo','IT')
 n = Counter(lista,'geo','IT')
 av = Average(subset,'geo','IT',2000)
+StdDev(lista,'geo','IT',2000)
 print(av, '\n', n)
 #row_list = Parser()
 #print(row_list)

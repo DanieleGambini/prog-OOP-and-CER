@@ -11,10 +11,10 @@ def main(req: func.HttpRequest) -> str:
     
     geo = req.params.get('GEO')
     obj = req.params.get('OBJ')
-    fil = req.params.get('filter')
+    fil = req.params.get('FILTER')
     recived_body = req.get_body()
     logging.info(geo + '\n' + obj + '\n' + fil)
-    #logging.info(recived_body)
+    logging.info(recived_body)
     try:
         jret = recived_body
         dataset = str(jret)
