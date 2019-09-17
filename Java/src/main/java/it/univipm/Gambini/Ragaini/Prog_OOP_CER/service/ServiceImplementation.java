@@ -32,12 +32,6 @@ public class ServiceImplementation implements RequestService{
 	
 	
 	@Override
-	public String statsRequest() {
-		return "{" + "}";
-	}
-	
-	
-	@Override
 	public String dataRequest() {
 		return ClassTo.Json(dataset.getData());
 	}

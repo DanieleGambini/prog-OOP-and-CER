@@ -37,7 +37,7 @@ public class RequestController {
 	}
 	
 	@RequestMapping(value = "/stats", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<Object> statsRequestFilter(@RequestParam(name="GEO") String geo, @RequestParam(name="OBJ") String obj, @RequestParam(name="FILTER", defaultValue="") String filter) {
+	public ResponseEntity<Object> statsRequestFilter(@RequestParam(name="GEO", defaultValue="") String geo, @RequestParam(name="OBJ", defaultValue="") String obj, @RequestParam(name="FILTER", defaultValue="") String filter) {
 		return new ResponseEntity<>(requestService.statsRequestFilter(geo, obj, filter), HttpStatus.OK);
 	}
 }
