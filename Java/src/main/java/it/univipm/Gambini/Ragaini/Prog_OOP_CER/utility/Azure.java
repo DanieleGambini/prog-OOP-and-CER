@@ -86,12 +86,13 @@ public class Azure {
 		return response.toString();
 	}
 	
-	public static String sendPost(String data) {
+	public static String sendPost(String data, String filter) {
 
-		//String urlParameters = "?FILTER="+filter;
+		String urlParameters = "?FILTER=" + filter.replace(" ","");
+		System.out.println(filter);
 		byte[] postData = data.getBytes(StandardCharsets.UTF_8);
 		int postDataLength = postData.length;
-		String url = "http://localhost:7071/api/HttpTrigger";//+urlParameters;
+		String url = "http://localhost:7071/api/HttpTrigger" + urlParameters;
 		URL URL = null;
 		HttpURLConnection con = null;
 		try {

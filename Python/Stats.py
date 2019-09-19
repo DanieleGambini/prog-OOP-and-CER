@@ -6,53 +6,31 @@ import math
 def Parser(dataset):
     DataList =[]
     '''
-    with open("dataset.json",'r') as file:
+    with open("dataset.json","r") as file:
         parse = json.load(file)
-    '''
+        '''
     parsed = json.loads(dataset)
     for row in parsed:
         DataList.append(row)
     return DataList
 
-def statsController(dataset, geo='', obj='', startYear=2000, endYear=2017):
+def statsController(dataset, filtro):
+    startYear = int(filtro['$start'])
     lista = Parser(dataset)
-    geo=''
-    obj=''
-
-    if geo is '' and obj is '':
-        stats = jsonRowsComposer(lista, geo, obj, startYear, endYear)
-        return stats
-    
-    elif obj is '':
-        sublist = [row for row in lista if row['geo']==geo]
-        stats = jsonRowsComposer(sublist, geo, obj, startYear, endYear)
-        return stats
-    
-    elif geo is '':
-        sublist = [row for row in lista if row['objective']==obj]
-        stats = jsonRowsComposer(sublist, geo, obj, startYear, endYear)
-        return stats
-    
+    if len(lista) == 1:
+        return jsonColumnsComposer(lista)
     else:
-        sublist1 = [row for row in lista if row['geo']==geo]
-        sublist = [row for row in sublist1 if row['objective']==obj]
-        l = []
-        for column in sublist[0]['timePeriod']:
-            l.append(column)
-        stats = jsonColumnsComposer(l, geo, obj, sublist[0])
-        return stats
+        return jsonRowsComposer(lista, startYear)
 
-def jsonRowsComposer(lista, geo, obj, startYear, endYear):
+def jsonRowsComposer(lista, start):
     listReturn = []
     context = {
-            #'geo': geo,
-            #'objective': obj,
             'Counter': Counter(lista)
             }
     listReturn.append(context)
-    for year in range(startYear-2000,endYear-1999):
+    for year in range(len(lista[0]['timePeriod'])):
         yearsStats = {
-            'year': year+2000,
+            'year': year+start,
             'Max': maxRows(lista,year),
             'Min': minRows(lista,year),
             'Average': AverageRows(lista,year),
@@ -61,12 +39,10 @@ def jsonRowsComposer(lista, geo, obj, startYear, endYear):
         listReturn.append(yearsStats)
     return listReturn
 
-def jsonColumnsComposer(lista, geo, obj, row):
+def jsonColumnsComposer(lista, row):
     l=[]
     l.append(row)
     d = {
-        #'geo': geo,
-        #'objective':obj,
         'Counter': 1,
         'Max': maxColumns(lista),
         'Min': minColumns(lista),
@@ -132,3 +108,8 @@ def minColumns(lista):
     for column in range(len(lista)):
         l.append(lista[column])
     return min(l)
+'''
+dataset = 'd.json'
+r = statsController(dataset)
+print(r)
+'''

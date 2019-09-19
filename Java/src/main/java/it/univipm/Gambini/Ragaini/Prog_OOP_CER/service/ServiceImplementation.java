@@ -83,6 +83,6 @@ public class ServiceImplementation implements RequestService{
 	@Override
 	public String statsRequestFilter(String filter) {
 		String dataFiltered = Filter.Controller(dataset, filter);
-		return Azure.sendPost(dataFiltered);
+		return Azure.sendPost(dataFiltered, filter);
 	}
 }
