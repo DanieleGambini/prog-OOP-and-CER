@@ -85,4 +85,79 @@ public class Azure {
 		}		
 		return response.toString();
 	}
+	
+	public static String sendPost(String data) {
+
+		//String urlParameters = "?FILTER="+filter;
+		byte[] postData = data.getBytes(StandardCharsets.UTF_8);
+		int postDataLength = postData.length;
+		String url = "http://localhost:7071/api/HttpTrigger";//+urlParameters;
+		URL URL = null;
+		HttpURLConnection con = null;
+		try {
+			URL = new URL(url);
+			con = (HttpURLConnection) URL.openConnection();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		con.setDoOutput(true);
+		con.setInstanceFollowRedirects( false );
+		//add request header
+		try {
+			con.setRequestMethod("POST");
+		} catch (ProtocolException e) {
+			e.printStackTrace();
+		}
+		con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
+		con.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded"); 
+		con.setRequestProperty( "charset", "utf-8");
+		con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
+		con.setRequestProperty("Accept", "application/json");
+		con.setRequestProperty("Content-Type", "application/json");
+		con.setUseCaches( false );
+
+		// Send post request
+		DataOutputStream wr = null;
+		try {
+			wr = new DataOutputStream(con.getOutputStream());
+			wr.writeBytes(data);
+			wr.flush();
+			wr.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		int responseCode = 0;
+		try {
+			responseCode = con.getResponseCode();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("\nSending 'POST' request to URL : " + url);
+		System.out.println("Parameters : NONE");// + urlParameters);
+		System.out.println("Response Code : " + responseCode);
+
+		BufferedReader in = null;
+		try {
+			in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		try {
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+		return response.toString();
+	}
+
 }

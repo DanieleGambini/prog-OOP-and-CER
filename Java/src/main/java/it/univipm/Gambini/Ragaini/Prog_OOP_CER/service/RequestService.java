@@ -2,6 +2,8 @@ package it.univipm.Gambini.Ragaini.Prog_OOP_CER.service;
 
 public interface RequestService {
 	
+	public abstract String dataRequest(String filter);
+
 	public abstract String dataRequest();
 	
 	public abstract String metadataRequest();
@@ -11,5 +13,7 @@ public interface RequestService {
 	public abstract String proofRequest();
 	
 	public abstract String statsRequestFilter(String geo, String obj, String filter);
+
+	public abstract String statsRequestFilter(String filter);
 
 }

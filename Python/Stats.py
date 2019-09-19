@@ -16,6 +16,8 @@ def Parser(dataset):
 
 def statsController(dataset, geo='', obj='', startYear=2000, endYear=2017):
     lista = Parser(dataset)
+    geo=''
+    obj=''
 
     if geo is '' and obj is '':
         stats = jsonRowsComposer(lista, geo, obj, startYear, endYear)
@@ -43,8 +45,8 @@ def statsController(dataset, geo='', obj='', startYear=2000, endYear=2017):
 def jsonRowsComposer(lista, geo, obj, startYear, endYear):
     listReturn = []
     context = {
-            'geo': geo,
-            'objective': obj,
+            #'geo': geo,
+            #'objective': obj,
             'Counter': Counter(lista)
             }
     listReturn.append(context)
@@ -63,8 +65,8 @@ def jsonColumnsComposer(lista, geo, obj, row):
     l=[]
     l.append(row)
     d = {
-        'geo': geo,
-        'objective':obj,
+        #'geo': geo,
+        #'objective':obj,
         'Counter': 1,
         'Max': maxColumns(lista),
         'Min': minColumns(lista),
