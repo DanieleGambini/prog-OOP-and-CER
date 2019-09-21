@@ -3,10 +3,10 @@ from pathlib import Path
 from Stats import statsController
 
 def cacheController(dataset, fil):
-    if fil is None:
-        return fileOpen('statsDataset.json')
-
     relpath='./cacheFiles/'
+    if fil is None:
+        return fileOpen(relpath+'statsDataset.json')
+
     cache = cacheOpen(relpath)
     f = json.loads(fil)
     key = str(keyConstructor(f))
