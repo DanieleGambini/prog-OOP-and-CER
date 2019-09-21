@@ -22,11 +22,12 @@ public class Metadata {
 		this.type = type;
 	}
 
-	public static String MetadataGeneretor(Header header) {
+	public static String MetadataGeneretor(Header header, Data data) {
 
 		/* SourceField Dynamic Generator
 		 * "descrizione"
 		 */
+	
 		ArrayList<String> getterResults = new ArrayList<>();
 		try {
 			Class<?> headerClass = Class.forName("it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Header");
@@ -60,7 +61,7 @@ public class Metadata {
 		 * "descrizione"
 		 */
 		Vector<String> tmp = new Vector<>();
-		Class<Header> h = Header.class;
+		Class<Data> h = Data.class;
 		Field[] fields = h.getDeclaredFields();
 		String field_type = new String();
 		String json = new String();

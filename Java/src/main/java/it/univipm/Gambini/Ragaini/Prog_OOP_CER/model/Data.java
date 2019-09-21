@@ -15,6 +15,9 @@ public class Data {
 		this.timePeriod = timePeriod;
 	}
 	
+	public Data() {
+	}
+
 	public char getFreq() {
 		return freq;
 	}

@@ -4,15 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Vector;
 
 import org.springframework.stereotype.Service;
 
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Data;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Proof_Conversion;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Downloader;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Filter;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
 
@@ -29,7 +30,8 @@ public class ServiceImplementation implements RequestService{
 	
 	@Override
 	public String metadataRequest() {
-		return Metadata.MetadataGeneretor(dataset.getHeader());
+		Data data = new Data();
+		return Metadata.MetadataGeneretor(dataset.getHeader(), data);
 	}
 	
 	@Override
