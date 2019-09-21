@@ -2,6 +2,10 @@ package it.univipm.Gambini.Ragaini.Prog_OOP_CER.model;
 
 import java.util.Vector;
 
+/**
+ * Classe che modella le istanze del dataset di riferimento. 
+ * E' costituita dall'aggregazione delle classi Dataset e Header.
+ */
 public class Dataset {
 	
 	protected Header header;

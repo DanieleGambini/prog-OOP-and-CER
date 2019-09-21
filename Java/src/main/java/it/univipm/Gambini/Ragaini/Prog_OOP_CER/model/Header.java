@@ -1,5 +1,9 @@
 package it.univipm.Gambini.Ragaini.Prog_OOP_CER.model;
-
+/**
+ * Classe che modella l'header del dataset di riferimento. 
+ * Costituisce la classe Dataset in aggregazione con la classe Data.
+ *
+ */
 public class Header{
 	protected String freq;
 	protected String geo;

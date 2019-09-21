@@ -1,5 +1,8 @@
 package it.univipm.Gambini.Ragaini.Prog_OOP_CER.model;
-
+/**
+ * Classe che modella le istanze del dataset di riferimento. 
+ * Costituisce la classe Dataset in aggregazione con la classe Header.
+ */
 public class Data {
 	private char freq;
 	private String geo;

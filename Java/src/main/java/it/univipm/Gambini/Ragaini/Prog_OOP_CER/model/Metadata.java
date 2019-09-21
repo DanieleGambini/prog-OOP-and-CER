@@ -9,6 +9,9 @@ import java.util.Vector;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
 
+/**
+ * Classe che modella i metadati relativi al dataset di riferimento.
+ */
 public class Metadata {
 
 	protected String alias;
@@ -22,12 +25,14 @@ public class Metadata {
 		this.type = type;
 	}
 
+	/**
+	 * Metodo che, data una classe di riferimento, ne estrapola il nome, il tipo e il valore degli attributi.
+	 * @param header istanza della classe Header
+	 * @param data istanza della classe Data
+	 * @return stringa in formato json che contiene nome, tipo e valore degli attributi della classe di riferimento.
+	 */
 	public static String MetadataGeneretor(Header header, Data data) {
-
-		/* SourceField Dynamic Generator
-		 * "descrizione"
-		 */
-	
+		// call getter methods to get class attributes values of the header
 		ArrayList<String> getterResults = new ArrayList<>();
 		try {
 			Class<?> headerClass = Class.forName("it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Header");
@@ -57,12 +62,12 @@ public class Metadata {
 		} 
 
 		
-		/* Alias and Type Dynamic Generator
-		 * "descrizione"
+		/* Data Alias and Type Dynamic Generator 
+		 * 
 		 */
 		Vector<String> tmp = new Vector<>();
-		Class<Data> h = Data.class;
-		Field[] fields = h.getDeclaredFields();
+		Class<Data> d = Data.class;
+		Field[] fields = d.getDeclaredFields();
 		String field_type = new String();
 		String json = new String();
 		String name = new String();
@@ -73,7 +78,7 @@ public class Metadata {
 			name = fields[j].toString().substring(fields[j].toString().lastIndexOf(".")+1, fields[j].toString().length());
 
 			// get types
-			Class<?> types = fields[j].getType();	// Possibilmente togliere la dichiarazione da dentro il for
+			Class<?> types = fields[j].getType();
 			field_type = types.toString().substring(types.toString().lastIndexOf(".")+1, types.toString().length()).replace(";", "[]");
 
 			json = ClassTo.Json(new Metadata(name, getterResults.toArray()[j].toString(), field_type));
