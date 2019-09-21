@@ -5,17 +5,19 @@ import math
 
 def Parser(dataset):
     DataList =[]
-    '''
-    with open("dataset.json","r") as file:
-        parse = json.load(file)
-        '''
+
+    #with open("dataset.json","r") as file:
+    #    parse = json.load(file)
+    
     parsed = json.loads(dataset)
     for row in parsed:
         DataList.append(row)
     return DataList
 
 def statsController(dataset, filtro):
-    startYear = int(filtro['$start'])
+    startYear=2000
+    if filtro is not None:
+        startYear = int(filtro['$start'])
     lista = Parser(dataset)
     if len(lista) == 1:
         return jsonColumnsComposer(lista)
@@ -25,16 +27,16 @@ def statsController(dataset, filtro):
 def jsonRowsComposer(lista, start):
     listReturn = []
     context = {
-            'Counter': Counter(lista)
+            'counter': Counter(lista)
             }
     listReturn.append(context)
     for year in range(len(lista[0]['timePeriod'])):
         yearsStats = {
             'year': year+start,
-            'Max': maxRows(lista,year),
-            'Min': minRows(lista,year),
-            'Average': AverageRows(lista,year),
-            'StdDev': StdDevRows(lista,year)
+            'max': maxRows(lista,year),
+            'min': minRows(lista,year),
+            'average': AverageRows(lista,year),
+            'stdDev': StdDevRows(lista,year)
             }
         listReturn.append(yearsStats)
     return listReturn
@@ -43,11 +45,11 @@ def jsonColumnsComposer(lista, row):
     l=[]
     l.append(row)
     d = {
-        'Counter': 1,
-        'Max': maxColumns(lista),
-        'Min': minColumns(lista),
-        'Average': AverageColumns(lista),
-        'StdDev': StdDevColumns(lista)
+        'counter': 1,
+        'max': maxColumns(lista),
+        'min': minColumns(lista),
+        'average': AverageColumns(lista),
+        'stdDev': StdDevColumns(lista)
         }
     l.append(d)
     return l
