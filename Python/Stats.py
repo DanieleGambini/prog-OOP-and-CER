@@ -20,7 +20,7 @@ def statsController(dataset, filtro):
         startYear = int(filtro['$start'])
     lista = Parser(dataset)
     if len(lista) == 1:
-        return jsonColumnsComposer(lista)
+        return jsonColumnsComposer(lista, lista[0])
     else:
         return jsonRowsComposer(lista, startYear)
 

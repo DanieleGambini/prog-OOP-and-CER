@@ -12,8 +12,6 @@ public interface RequestService {
 	
 	public abstract String proofRequest();
 	
-	public abstract String statsRequestFilter(String geo, String obj, String filter);
-
 	public abstract String statsRequestFilter(String filter);
 
 }

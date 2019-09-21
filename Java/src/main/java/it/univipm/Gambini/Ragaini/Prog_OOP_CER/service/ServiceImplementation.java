@@ -74,15 +74,15 @@ public class ServiceImplementation implements RequestService{
 		return Proof_Conversion.Proof();
 	}
 
-	
-	@Override
-	public String statsRequestFilter(String geo, String obj, String filter) {
-		return Azure.sendPost(geo, obj, filter, ClassTo.Json(dataset.getData()));
-	}
 
 	@Override
 	public String statsRequestFilter(String filter) {
+		if (filter == "") {
+			return Azure.sendPost(ClassTo.Json(dataset.getData()), filter);
+		}
+		else {
 		String dataFiltered = Filter.Controller(dataset, filter);
 		return Azure.sendPost(dataFiltered, filter);
+		}
 	}
 }

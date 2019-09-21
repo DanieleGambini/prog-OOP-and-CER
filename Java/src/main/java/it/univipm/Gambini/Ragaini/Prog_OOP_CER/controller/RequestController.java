@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.service.RequestService;
@@ -43,8 +42,8 @@ public class RequestController {
 	}
 	
 	@RequestMapping(value = "/stats", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<Object> statsRequestFilter(@RequestParam(name="GEO", defaultValue="") String geo, @RequestParam(name="OBJ", defaultValue="") String obj, @RequestParam(name="FILTER", defaultValue="") String filter) {
-		return new ResponseEntity<>(requestService.statsRequestFilter(geo, obj, filter), HttpStatus.OK);
+	public ResponseEntity<Object> statsRequestFilter() {
+		return new ResponseEntity<>(requestService.statsRequestFilter(""), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/stats", method = RequestMethod.POST, produces = "application/json")
