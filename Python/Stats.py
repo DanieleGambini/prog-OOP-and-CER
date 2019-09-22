@@ -15,24 +15,34 @@ def Parser(dataset):
     return DataList
 
 def statsController(dataset, filtro):
-    startYear=2000
-    if filtro is not None:
-        startYear = int(filtro['$start'])
     lista = Parser(dataset)
     if len(lista) == 1:
-        return jsonColumnsComposer(lista, lista[0])
+        return jsonColumnsComposer(lista, lista[0], filtro)
+    elif len(lista) > 1:
+        return jsonRowsComposer(lista, filtro)
     else:
-        return jsonRowsComposer(lista, startYear)
+        l = []
+        error = { "error": "Not Found with this characteristics" }
+        l.append(error)
+        l.append(filtro)
+        return l
 
-def jsonRowsComposer(lista, start):
+def jsonRowsComposer(lista, filtro):
     listReturn = []
+    startYear=2000
+    if filtro is not None: 
+        startYear = int(filtro['$start'])
+    
+    listReturn.append(filtro)
+
     context = {
             'counter': Counter(lista)
             }
     listReturn.append(context)
+
     for year in range(len(lista[0]['timePeriod'])):
         yearsStats = {
-            'year': year+start,
+            'year': year+startYear,
             'max': maxRows(lista,year),
             'min': minRows(lista,year),
             'average': AverageRows(lista,year),
@@ -41,8 +51,9 @@ def jsonRowsComposer(lista, start):
         listReturn.append(yearsStats)
     return listReturn
 
-def jsonColumnsComposer(lista, row):
+def jsonColumnsComposer(lista, row, filtro):
     l=[]
+    l.append(filtro)
     l.append(row)
     d = {
         'counter': 1,
@@ -65,8 +76,8 @@ def AverageRows(lista, year):
 
 def AverageColumns(lista):
     som=0
-    for row in range(len(lista)):
-        som = som + lista[row]
+    for row in range(len(lista[0]['timePeriod'])):
+        som = som + lista[0]['timePeriod'][row]
     return som/len(lista)
 
 def StdDevRows(lista, year):
@@ -81,8 +92,8 @@ def StdDevRows(lista, year):
 def StdDevColumns(lista):
     aritmetic_average = AverageColumns(lista)
     summation = 0
-    for row in range(len(lista)):
-        xi = lista[row]
+    for row in range(len(lista[0]['timePeriod'])):
+        xi = lista[0]['timePeriod'][row]
         summation = summation + (xi - aritmetic_average)**2
     stDev = math.sqrt(summation/len(lista))
     return stDev
@@ -101,17 +112,22 @@ def minRows(lista,Year):
 
 def maxColumns(lista):
     l = []
-    for column in range(len(lista)):
-        l.append(lista[column])
+    for column in range(len(lista[0]['timePeriod'])):
+        l.append(lista[0]['timePeriod'][column])
     return max(l)
 
 def minColumns(lista):
     l = []
-    for column in range(len(lista)):
-        l.append(lista[column])
+    for column in range(len(lista[0]['timePeriod'])):
+        l.append(lista[0]['timePeriod'][column])
     return min(l)
+
+
 '''
-dataset = 'd.json'
-r = statsController(dataset)
+dataset = '[{"freq":"A","geo":"ES","unit":"MEUR_KP_PRE","objective":"TOTAL","timePeriod":[163.695,439.442,466.17,542.419,939.345,727.648,725.043,604.866,534.863,697.641,700.695,559.535,536.094,616.844,518.538]}]'
+
+filtro = '{ "$and": [ {"GEO": ["ES"] }, { "OBJ": ["TOTAL"] } ], "$start": "2002", "$end": "2016" }'
+
+r = statsController(dataset, filtro)
 print(r)
 '''
