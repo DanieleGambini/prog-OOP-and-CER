@@ -11,12 +11,22 @@ import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Header;
 
 
+/**
+ * Classe che effettua il parsing di un file CSV utilizzando come delimitatori: comma(,) e semicolon(;)
+ *
+ */
 public class Parser {
 	
 	final static String COMMA_DELIMITER = ",";
 	final static String SEMICOLON_DELIMITER = ";";
 	//static Dataset dataset;
 
+	/**
+	 * Metodo che effettua il parsing di un file CSV utilizzando come delimitatori: comma(,) e semicolon(;)
+	 * @param dataset istanza della classe Dataset
+	 * @param file stringa contente il file formato CSV
+	 * @return istanza della classe Dataset
+	 */
 	public static Dataset main (Dataset dataset, String file) {
 		
 		// Dichiarazione Strutture dati

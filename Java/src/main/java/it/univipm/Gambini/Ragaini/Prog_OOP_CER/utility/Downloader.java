@@ -16,14 +16,21 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Classe contente la procedura di dowloading del dataset di riferimento 
+ *
+ */
 public class Downloader {
 
+	/**
+	 * Procedura che effettua il downloading del dataset
+	 * @param arg url di riferimento
+	 */
 	public static void main(String arg) {
 
-		String url = arg;
 		try {
 
-			URLConnection openConnection = new URL(url).openConnection();
+			URLConnection openConnection = new URL(arg).openConnection();
 			openConnection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
 			/* Crea il processo di lettura del file.
 			 * in é il collegamento che descrive la lettura del file.
@@ -93,7 +100,7 @@ public class Downloader {
 	}
 
 	/*
-	 *manca il commento
+	 * Procedura che apre un percorso url e ne stampa su file il contenuto 
 	 */
 	public static void download(String url, String fileName) throws Exception {
 	    try (InputStream input = URI.create(url).toURL().openStream()) {

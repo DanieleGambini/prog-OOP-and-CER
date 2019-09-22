@@ -8,6 +8,7 @@ import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
 
 public class Proof_Conversion {
 	
+	
 	public static String  Proof() {
 		Vector<String> appoggio = new Vector<>();
 		Class<Ref_Class> h = Ref_Class.class;
@@ -24,7 +25,6 @@ public class Proof_Conversion {
 			System.out.println(attribute_type);
 			j++;
 		}
-		//System.out.println(appoggio.toString());
 		return appoggio.toString();
 	}
 	

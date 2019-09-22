@@ -13,44 +13,50 @@ import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Proof_Conversion;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Downloader;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Filter;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Parser;
 
+/**
+ * Classe che contiene l'implementazione dei metodi dell'interfaccia RequestService
+ */
 @Service
 public class ServiceImplementation implements RequestService{
 
 	private Dataset dataset;
 
+	/**
+	 * Metodo che attiva le procedure di downloading e di parsing presenti nelle classi: Downloader e Parser
+	 */
 	public ServiceImplementation() {
-		//Downloader.main("http://data.europa.eu/euodp/data/api/3/action/package_show?id=vzo0vqtpcgMt3X8yBGTJ8Q");
+		Downloader.main("http://data.europa.eu/euodp/data/api/3/action/package_show?id=vzo0vqtpcgMt3X8yBGTJ8Q");
 		dataset = Parser.main(dataset,"dataset.csv");
-		//String filter = "{ \"$not\": [ { \"GEO\": [\"IT\", \"LV\", \"SK\"] } , {\"OBJ\": [\"TOTAL\",] } ] }";
 	}
 	
+	/* Implementazione del metodo metadataRequest() chiamato nella classe RequestController */
 	@Override
 	public String metadataRequest() {
 		Data data = new Data();
 		return Metadata.MetadataGeneretor(dataset.getHeader(), data);
 	}
 	
+	/* Implementazione del metodo dataRequest() chiamato nella classe RequestController */
 	@Override
 	public String dataRequest() {
 		return ClassTo.Json(dataset.getData());
 	}
-	
+
+	/* Implementazione del metodo dataRequest(String filter) chiamato nella classe RequestController, 
+	 * Restituisce il sottoinsieme relativo al filtro immesso. 
+	 */
 	@Override
 	public String dataRequest(String filter) {
-		if (filter.isEmpty()) {
-			return ClassTo.Json(dataset.getData());
-		}
-		else {
-			String subset = Filter.Controller(dataset, filter);
-			return subset;
-		}
-		
+		return Filter.Controller(dataset.getData(), filter);
 	}
 	
-	
+	/*Implementazione del metodo rootRequest chiamato nella classe RequestCeontroller.
+	 * Carica da file, attraverso una struttura di buffer, un insieme di dati che restituisce come stringa.
+	 * */
 	@Override
 	public String rootRequest() {
 		StringBuilder data = new StringBuilder();
@@ -70,19 +76,28 @@ public class ServiceImplementation implements RequestService{
 	}
 	
 	
+	/* 
+	 * Implementazione del metodo proofRequest presente nella classe Scratch
+	 */
 	@Override
 	public String proofRequest() {
 		return Proof_Conversion.Proof();
 	}
 
-
+	
+	/* 
+	 * Implementazione del metodo statsRequestFilter presente nella classe RequestController.
+	 * Controlla se la stringa contente il filtro è vuota:
+	 * in caso affermativo chiama il metodo sendPost della classe Azure e fornisce come parametro il dataset di riferimento,
+	 * in caso negativo chiama il metodo sendPost della classe Azure e fornisce come parametro il sottoinsieme relativo al filtro immesso.
+	 */
 	@Override
 	public String statsRequestFilter(String filter) {
-		if (filter == "") {
+		if (filter.isEmpty()) {
 			return Azure.sendPost(ClassTo.Json(dataset.getData()), filter);
 		}
 		else {
-		String dataFiltered = Filter.Controller(dataset, filter);
+		String dataFiltered = Filter.Controller(dataset.getData(), filter);
 		return Azure.sendPost(dataFiltered, filter);
 		}
 	}

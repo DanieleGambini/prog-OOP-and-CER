@@ -11,24 +11,30 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Data;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 
+/**
+ * Classe che gestisce i filtri sul dataset di riferimento in base alle richieste dell'utente.
+ *
+ */
 public class Filter {
+	
 
 	final static String COMMA_DELIMITER = ",";
 
-	public static String Controller(Dataset dataset, String filterRequest) {		
+	/**Metodo che, sulla base dei parametri forniti dall'utente, gestisce le richieste relative ai filtri sul dataset 
+	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param filterRequest stringa di oggetti formato json contenente i filtri inoltrati dall'utente
+	 * { "$": [ {"GEO": ["", "", ... , "" }, { "OBJ": ["", "", ... , ""] } ], "$start": "", "$end": "" }
+	 * @return array di oggetti in formato json (sotto forma stringa) sottoinsieme del dataset di riferimento 
+	 */
+	public static String Controller(Vector<Data> dataset, String filterRequest) {
 		JSONObject filter = new JSONObject();
 		try {
 			filter = (JSONObject) JSONValue.parseWithException(filterRequest);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Vector<Data> subset = operationSelector(dataset.getData(), filter);
-		return ClassTo.Json(subset);
-	}
-
-	private static Vector<Data> operationSelector(Vector<Data> dataset, JSONObject filter) {
+		
 		Vector<Data> subset = dataset;
 		if (filter.containsKey("$in") || filter.containsKey("$or")) {
 			List<List<String>> initialized = initializer(filter, "$in");
@@ -37,7 +43,7 @@ public class Filter {
 
 		if (filter.containsKey("$not")) {
 			List<List<String>> initialized = initializer(filter, "$not");
-			subset = NOT(subset, initialized.get(0) , initialized.get(1));
+			subset = NIN_NOT(subset, initialized.get(0) , initialized.get(1));
 		}
 
 		if (filter.containsKey("$and")) {
@@ -56,15 +62,20 @@ public class Filter {
 				if( Integer.parseUnsignedInt((String) filter.get("$end"))>1999 || Integer.parseUnsignedInt((String) filter.get("$end"))<2018) {
 					subset = endYearSelector(subset, 2017-Integer.parseUnsignedInt((String) filter.get("$end")));
 				} else {
-					throw new IllegalArgumentException("Error: start year insered not valid");
+					throw new IllegalArgumentException("Error: end year insered not valid");
 				}
 			}
 		} else {
 			throw new IllegalArgumentException("Error: years insered not valid");
 			}
-		return subset;
+		return ClassTo.Json(subset);
 	}
 
+	/** Metodo ausiliario che seleziona dal dataset di riferimento le istanze richieste a partire dal parametro numerico specificato
+	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param start intero che funge da indice per la selezione
+	 * @return vettore di istanze della classe Data sottoinsieme del dataset di riferimento
+	 */
 	@SuppressWarnings("unused")
 	private static Vector<Data> startYearSelector(Vector<Data> dataset, int start) {
 		Vector<Data> result = new Vector<>();
@@ -84,6 +95,12 @@ public class Filter {
 		return result;
 	}
 
+	/**
+	 * Metodo ausiliario che seleziona dal dataset di riferimento le istanze richieste entro il parametro numerico specificato
+	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param start intero che funge da indice per la selezione
+	 * @return vettore di istanze della classe Data sottoinsieme del dataset di riferimento
+	 */
 	@SuppressWarnings("unused")
 	private static Vector<Data> endYearSelector(Vector<Data> dataset, int end) {
 		Vector<Data> result = new Vector<>();
@@ -102,7 +119,12 @@ public class Filter {
 		}
 		return result;
 	}
-
+	
+	/** Metodo ausiliario che decodifica un oggetto di tipo json in una stuttura dati utilizzabile dal programma 
+	 * @param filter oggetto di tipo json
+	 * @param op stringa di caratteri
+	 * @return lista composta da due elementi di tipo di lista
+	 */
 	private static List<List<String>> initializer(JSONObject filter, String op) {
 		List<List<String>> result = new ArrayList<>();
 		JSONArray filterOP = (JSONArray) filter.get(op);
@@ -127,7 +149,13 @@ public class Filter {
 		return result;
 	}
 
-	private static Vector<Data> NOT(Vector<Data> dataset, List<String> geoValues, List<String> objValues) {
+	/**Metodo ausiliario che svolge le funzioni: NIN (nel caso di parametri multipli), NOT (nel caso di parametri singoli) 
+	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param geoValues lista di elementi di tipo stringa che rappresenta le informazioni prelevate dal json
+	 * @param objValues lista di elementi di tipo stringa che rappresenta le informazioni prelevate dal json
+	 * @return vettore di istanze della classe Data sottoinsieme della classe di riferimento
+	 */
+	private static Vector<Data> NIN_NOT(Vector<Data> dataset, List<String> geoValues, List<String> objValues) {
 		for (String geoValue: geoValues) {
 			for (int j=0; j<dataset.size(); j++) {
 				@SuppressWarnings("unused")
@@ -149,6 +177,12 @@ public class Filter {
 		return dataset;
 	}
 
+	/**Metodo ausiliario che svolge le funzioni: IN (nel caso di parametri multipli), OR (nel caso di parametri singoli) 
+	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param geoValues lista di elementi di tipo stringa che rappresenta le informazioni prelevate dal json
+	 * @param objValues lista di elementi di tipo stringa che rappresenta le informazioni prelevate dal json
+	 * @return vettore di istanze della classe Data sottoinsieme della classe di riferimento
+	 */
 	private static Vector<Data> IN_OR(Vector<Data> dataset, List<String> Gvalues, List<String> Ovalues) {
 		Vector<Data> result = new Vector<>();
 		for (String value: Gvalues) {
@@ -168,6 +202,12 @@ public class Filter {
 		return result;
 	}
 
+	/**Metodo ausiliario che svolge la funzione AND 
+	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param geoValues lista di elementi di tipo stringa che rappresenta le informazioni prelevate dal json
+	 * @param objValues lista di elementi di tipo stringa che rappresenta le informazioni prelevate dal json
+	 * @return vettore di istanze della classe Data sottoinsieme della classe di riferimento
+	 */
 	private static Vector<Data> AND(Vector<Data> dataset, List<String> geoValues, List<String> objValues) {
 		Vector<Data> result = new Vector<>();
 		Vector<Data> tmp = new Vector<>();

@@ -10,8 +10,16 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Classe che agisce da trasformatore per le richieste da inoltrare ad Azure
+ */
 public class Azure {
 	
+	/**Metodo che inoltra una POST request ad Azure tenendo conto di eventuali parametri specificati.
+	 * @param data stringa contentente le istanze della classe di riferimento
+	 * @param filter stringa formato json contenente le specifiche del filtro
+	 * @return stringa relativa al tipo di servizio richiesto ad Azure
+	 */
 	public static String sendPost(String data, String filter) {
 
 		String urlParameters = "?FILTER=" + filter.replace(" ","");
@@ -32,14 +40,14 @@ public class Azure {
 
 		con.setDoOutput(true);
 		con.setInstanceFollowRedirects( false );
+		
 		//add request header
 		try {
 			con.setRequestMethod("POST");
 		} catch (ProtocolException e) {
 			e.printStackTrace();
 		}
-		con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-		//con.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded"); 
+		con.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0"); 
 		con.setRequestProperty( "charset", "utf-8");
 		con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
 		con.setRequestProperty("Accept", "application/json");
@@ -86,5 +94,4 @@ public class Azure {
 		}		
 		return response.toString();
 	}
-
 }

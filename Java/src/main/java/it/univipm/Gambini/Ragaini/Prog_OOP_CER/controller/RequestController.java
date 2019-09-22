@@ -22,8 +22,9 @@ public class RequestController {
 	RequestService requestService;
 	
 	/**
-	 * Metodo che definisce la rotta "/data" specificando il tipo di richiesta (GET)
-	 * @return Array di oggetti json (dataset parsato)
+	 * Metodo che definisce la rotta "/data" relativa al tipo di richiesta (GET).
+	 * Restituisce al client http il dataset di riferimento.
+	 * @return Array di oggetti in formato json
 	 */
 	@RequestMapping(value = "/data", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> dataRequest() {
@@ -31,9 +32,10 @@ public class RequestController {
 	}
 	
 	/**
-	 * Metodo che definisce la rotta "/data" specificando il tipo di richiesta (POST) e il filtro da applicare
-	 * @param filter formato json da specificare all'interno del body
-	 * @return Array di oggetti json (dataset parsato corrispondente al filtro richiesto)
+	 * Metodo che definisce la rotta "/data" relativa al tipo di richiesta (POST).
+	 * Restituisce al client http il dataset di riferimento parsato corrispondente al filtro richiesto.
+	 * @param filter stringa formato json da specificare all'interno del body
+	 * @return Array di oggetti in formato json
 	 */
 	@RequestMapping(value = "/data", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<Object> dataRequest(@RequestBody String filter) {
@@ -41,8 +43,9 @@ public class RequestController {
 	}
 	
 	/**
-	 * Metodo che definisce la rotta "/metadata" specificando il tipo di richiesta (GET)
-	 * @return Array di oggetti json (metadati relativi al dataset)
+	 * Metodo che definisce la rotta "/metadata" relativa al tipo di richiesta (GET). 
+	 * Restituisce al client http i metadati relativi al dataset di riferimento
+	 * @return Array di oggetti in formato json
 	 */
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> metadataRequest() {
@@ -50,17 +53,19 @@ public class RequestController {
 	}
 	
 	/**
-	 * Metodo che definisce la rotta "/" specificando il tipo di richiesta (GET)
-	 * @return HTML file contenente istruzioni di help
+	 * Metodo che definisce la rotta "/" relativa al tipo di richiesta (GET).
+	 * Restituisce al client http una pagina di help.
+	 * @return HTML file
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "text/html")
 	public ResponseEntity<Object> rootRequest() {
 		return new ResponseEntity<>(requestService.rootRequest(), HttpStatus.OK);
 	}
 	
 	/**
-	 * Metodo che definisce la rotta "/proof" specificando il tipo di richiesta (GET)
-	 * @return Array di oggetti json relativi ai tipi nativi della libreria "Java.lang"
+	 * Metodo che definisce la rotta "/proof" relativa al tipo di richiesta (GET).
+	 * Restituisce al client http una stampa di prova contenente gli standard di codifica degli array relativi ai tipi nativi della libreria "Java.lang"
+	 * @return Array di oggetti in formato json 
 	 */
 	@RequestMapping(value = "/proof", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> proofRequest() {
@@ -68,8 +73,9 @@ public class RequestController {
 	}
 	
 	/**
-	 * Metodo che definisce la rotta "/stats" specificando il tipo di richiesta (GET)
-	 * @return Array di oggetti json (contente statistiche del dataset)
+	 * Metodo che definisce la rotta "/stats" relativa al tipo di richiesta (GET).
+	 * Restituisce al client http le statistiche richieste sul dataset di riferimento
+	 * @return Array di oggetti in formato json 
 	 */
 	@RequestMapping(value = "/stats", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Object> statsRequestFilter() {
@@ -77,9 +83,10 @@ public class RequestController {
 	}
 	
 	/**
-	 * Metodo che definisce la rotta "/stats" specificando il tipo di richiesta (POST) e il filtro da applicare
-	 * @param filter formato json
-	 * @return Array di oggetti json (contente statistiche del dataset relative al filtro immesso)
+	 * Metodo che definisce la rotta "/stats" relativa al tipo di richiesta (POST). 
+	 * Restituisce al client http le statistiche richieste su un sottoinsieme del dataset relativo al filtro immesso.
+	 * @param filter stringa formato json
+	 * @return Array di oggetti in formato json
 	 */
 	@RequestMapping(value = "/stats", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<Object> statsRequestFilter(@RequestBody String filter) {
