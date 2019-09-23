@@ -125,7 +125,7 @@ public class Filter {
 	 * @param op stringa di caratteri
 	 * @return lista composta da due elementi di tipo di lista
 	 */
-	private static List<List<String>> initializer(JSONObject filter, String op) {
+	public static List<List<String>> initializer(JSONObject filter, String op) {
 		List<List<String>> result = new ArrayList<>();
 		JSONArray filterOP = (JSONArray) filter.get(op);
 		JSONObject p1 = (JSONObject) filterOP.get(0);

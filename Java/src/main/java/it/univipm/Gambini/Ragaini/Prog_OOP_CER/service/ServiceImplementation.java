@@ -31,6 +31,7 @@ public class ServiceImplementation implements RequestService{
 	public ServiceImplementation() {
 		Downloader.main("http://data.europa.eu/euodp/data/api/3/action/package_show?id=vzo0vqtpcgMt3X8yBGTJ8Q");
 		dataset = Parser.main(dataset,"dataset.csv");
+		System.out.println("READY");
 	}
 	
 	/* Implementazione del metodo metadataRequest() chiamato nella classe RequestController */

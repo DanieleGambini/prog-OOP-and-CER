@@ -51,7 +51,7 @@ public class Downloader {
 			    */
 			   while ( ( line = buf.readLine() ) != null ) {
 				   data+= line;
-				   System.out.println( line );
+				   //System.out.println( line );
 			   }
 			 } finally {
 			   in.close();
@@ -83,13 +83,13 @@ public class Downloader {
 			        JSONObject o1 = (JSONObject)o;
 			        String format = (String)o1.get("format");
 			        String urlD = (String)o1.get("url");
-			        System.out.println(format + " | " + urlD);
+			        //System.out.println(format + " | " + urlD);
 			        if(format.contains("CSV")) {
 			        	download(urlD, "dataset.csv");
 			        }
 			    }
 			}
-			System.out.println( "OK" );
+			System.out.println( "DOWNLOAD DONE" );
 
 			// Exceptions
 		} catch (IOException | ParseException e) {
@@ -104,9 +104,7 @@ public class Downloader {
 	 */
 	public static void download(String url, String fileName) throws Exception {
 	    try (InputStream input = URI.create(url).toURL().openStream()) {
-	    	System.out.println("Printing file path");
 	        Files.copy(input, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
-	    	System.out.println(Paths.get(fileName));
 	    	input.close();
 	    }
 	}
