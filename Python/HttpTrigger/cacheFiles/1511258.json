@@ -1,0 +1,1 @@
+[{"$and": [{"GEO": ["UK"]}, {"OBJ": ["OTH"]}], "$start": "2002", "$end": "2009"}, {"freq": "A", "geo": "UK", "unit": "MEUR_KP_PRE", "objective": "OTH", "timePeriod": [13.794, 13.729, 15.222, 8.584, 8.974, 7.895, 7.197, 4.114]}, {"counter": 1, "max": 15.222, "min": 4.114, "average": 79.509, "stdDev": 197.04270148625145}]

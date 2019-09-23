@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from Stats import statsController
 
 def cacheController(dataset, fil):

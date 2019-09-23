@@ -22,11 +22,13 @@ public class Azure {
 	 */
 	public static String sendPost(String data, String filter) {
 
-		String urlParameters = "?FILTER=" + filter.replace(" ","");
+		String urlParameters = "&FILTER=" + filter.replace(" ","");
 		System.out.println(filter);
 		byte[] postData = data.getBytes(StandardCharsets.UTF_8);
 		int postDataLength = postData.length;
-		String url = "http://localhost:7071/api/HttpTrigger" + urlParameters;
+		String url = "https://quickstats.azurewebsites.net/api/HttpTrigger?code=wHaIvJGIHJTYK2PwWEA1SEJkSRFOstTgWyx85B/Raum7rXNiNYyBEQ==" + urlParameters;
+		//String url = "https://stats2.azurewebsites.net/api/HttpTrigger" + urlParameters;
+		//String url = "http://localhost:7071/api/HttpTrigger" + urlParameters;
 		URL URL = null;
 		HttpURLConnection con = null;
 		try {
