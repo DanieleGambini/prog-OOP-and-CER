@@ -37,19 +37,21 @@ public class Filter {
 		
 		Vector<Data> subset = dataset;
 		if (filter.containsKey("$in") || filter.containsKey("$or")) {
-			List<List<String>> initialized = initializer(filter, "$in");
+			List<List<String>> initialized = initializer(filter, "$in");			
 			subset = IN_OR(subset, initialized.get(0) , initialized.get(1));
 		}
 
-		if (filter.containsKey("$not")) {
+		else if (filter.containsKey("$not") || filter.containsKey("$nin")) {
 			List<List<String>> initialized = initializer(filter, "$not");
 			subset = NIN_NOT(subset, initialized.get(0) , initialized.get(1));
 		}
 
-		if (filter.containsKey("$and")) {
+		else if (filter.containsKey("$and")) {
 			List<List<String>> initialized = initializer(filter, "$and");
 			subset = AND(subset, initialized.get(0) , initialized.get(1));
-		}
+		} else {
+			throw new IllegalArgumentException("Error: operation insered not valid");
+			}
 
 		if (filter.containsKey("$start") || filter.containsKey("$end")) {
 			if ( filter.containsKey("$start")) {
@@ -65,9 +67,7 @@ public class Filter {
 					throw new IllegalArgumentException("Error: end year insered not valid");
 				}
 			}
-		} else {
-			throw new IllegalArgumentException("Error: years insered not valid");
-			}
+		}
 		return ClassTo.Json(subset);
 	}
 
@@ -137,17 +137,24 @@ public class Filter {
 			}
 			result.add(geoValues);
 		}
-		JSONObject p2 = (JSONObject) filterOP.get(1);
-		if (p2.containsKey("OBJ")) {
-			JSONArray obj = (JSONArray) p2.get("OBJ");
-			List<String> objValues = new ArrayList<String>();
-			for (int i=0; i<obj.size(); i++) {			
-				objValues.add(obj.get(i).toString());
+			JSONObject p2 = (JSONObject) filterOP.get(filterOP.size()-1);
+			if (p2.containsKey("OBJ")) {
+				JSONArray obj = (JSONArray) p2.get("OBJ");
+				List<String> objValues = new ArrayList<String>();
+				for (int i=0; i<obj.size(); i++) {			
+					objValues.add(obj.get(i).toString());
+				}
+				result.add(objValues);
 			}
-			result.add(objValues);
+			
+		if (result.size()==1) {
+			result.add(result.get(0));
 		}
 		return result;
 	}
+	
+	
+	
 
 	/**Metodo ausiliario che svolge le funzioni: NIN (nel caso di parametri multipli), NOT (nel caso di parametri singoli) 
 	 * @param dataset vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
@@ -160,7 +167,7 @@ public class Filter {
 			for (int j=0; j<dataset.size(); j++) {
 				@SuppressWarnings("unused")
 				Data row = dataset.get(j);
-				if (row.getGeo().equals(geoValue)) {
+				if (row.getGeo().contentEquals(geoValue)) {
 					dataset.remove(j);
 				}
 			}
@@ -169,7 +176,7 @@ public class Filter {
 			for (int j=0; j<dataset.size(); j++) {
 				@SuppressWarnings("unused")
 				Data row = dataset.get(j);
-				if (row.getObjective().equals(objValue)) {
+				if (row.getObjective().contentEquals(objValue)) {
 					dataset.remove(j);
 				}
 			}
@@ -187,14 +194,14 @@ public class Filter {
 		Vector<Data> result = new Vector<>();
 		for (String value: Gvalues) {
 			for(Data row: dataset) {
-				if (row.getGeo().equals(value)) {
+				if (row.getGeo().contentEquals(value)) {
 					result.add(row);
 				}
 			}
 		}
 		for (String value: Ovalues) {
 			for(Data row: dataset) {
-				if (row.getObjective().equals(value)) {
+				if (row.getObjective().contentEquals(value)) {
 					result.add(row);
 				}
 			}
@@ -213,14 +220,14 @@ public class Filter {
 		Vector<Data> tmp = new Vector<>();
 		for (String value: geoValues) {
 			for(Data row: dataset) {
-				if (row.getGeo().equals(value)) {
+				if (row.getGeo().contentEquals(value)) {
 					tmp.add(row);
 				}
 			}
 		}
 		for(String value: objValues) {
 			for(Data row: tmp) {
-				if (row.getObjective().equals(value)) {
+				if (row.getObjective().contentEquals(value)) {
 					result.add(row);
 				}
 			}

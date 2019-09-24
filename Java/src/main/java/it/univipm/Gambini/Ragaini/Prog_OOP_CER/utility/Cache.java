@@ -11,51 +11,67 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.List;
+import java.util.Vector;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Data;
+
+/**
+ * Classe che gestisce i la cache per 
+ */
 public class Cache {
 
-	public String controller(String stats, String filter) {
-
-		String relpath = "";
-		if (filter == "") {
-			return FileOpen("wholestats.json");
-		}
-
+	static String relpath = "cacheFiles" + File.separator;
+	static String ext = ".json";
+	static String cachePath = relpath+"cache"+ext;
+	
+	
+	public static String controller(Vector<Data> data, String filter) {
+		
 		JSONObject cache = cacheOpen();
 		
+		if (filter.isEmpty()) {
+			return Cache.FileOpen(relpath+"datasetStats"+ext);
+		}
 		String key = Integer.toString(keyGenerator(filter));
-		
 		if (cache.containsKey(key)) {
-			return FileOpen(key);
+			return FileOpen(relpath+key+ext);
 		}
 		
 		else {
-			newFileCache(stats, key+".json");
+			String dataFiltered = Filter.Controller(data, filter);
+			String stats = Azure.sendPost(dataFiltered, filter);
+			newFileCache(cache, stats, key);
 			return stats;
 		}
 	}
 
 
-	private String FileOpen(String fileName) {
-		
-		File file = new File(fileName);
-		String line = new String();
-		try (BufferedReader buffer_reader = new BufferedReader(new FileReader(file))) {
-			line = buffer_reader.readLine();
+	private static String FileOpen(String fileName) {
+		String pathFile = fileName;
+		File file = new File(pathFile);
+		StringBuilder data = new StringBuilder();
+		try {
+			BufferedReader in = new BufferedReader(new FileReader(file));
+			String line = new String();
+			while ((line = in.readLine()) != null ) {
+				data.append(line);
+			}
+			in.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return line;
+		String f = data.toString();
+		return f;
 	}
-	
-	private JSONObject cacheOpen() {
-		File file = new File("cacheFiles/cache.json");
+
+	private static JSONObject cacheOpen() {
+		File file = new File(relpath+"cache"+ext);
 		String line = new String();
 		try (BufferedReader buffer_reader = new BufferedReader(new FileReader(file))) {
 			line = buffer_reader.readLine();
@@ -74,9 +90,9 @@ public class Cache {
 		return cache;
 	}
 
-	private void newFileCache(String stats, String fileName) {
+	private static void writeOnFile(String data, String fileName) {
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "utf-8"))) {
-			writer.write(stats);
+			writer.write(data);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -84,10 +100,17 @@ public class Cache {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 	
-	private String opSelector(JSONObject operation) {
+	@SuppressWarnings("unchecked")
+	private static void newFileCache(JSONObject cache, String stats, String key) {
+		String fileName = relpath + key + ext;
+		cache.putIfAbsent(key, fileName);
+		writeOnFile(cache.toJSONString(), relpath+"cache"+ext);
+		writeOnFile(stats, fileName);
+		}
+	
+	private static String opSelector(JSONObject operation) {
 		
 		if (operation.containsKey("$in")) {
 			return "$in";
@@ -95,23 +118,15 @@ public class Cache {
 		else if (operation.containsKey("$not")) {
 			return "$not";
 		}
-		else {
+		else if (operation.containsKey("$and")) {
 			return "$and";
 		}
+		else {
+			throw new IllegalArgumentException("Error: operation insered not valid");
+		}
 	}
 	
-	private String yearSelector(JSONObject filter) {
-		if (filter.containsKey("$start")) {
-			return (String) filter.get("$start");
-		}
-		else if (filter.containsKey("$end")) {
-			return (String) filter.get("$end");
-		}
-		else return "";
-		
-	}
-	
-	private int keyGenerator(String filter) {
+	private static int keyGenerator(String filter) {
 		JSONObject operation = new JSONObject();
 		try {
 			operation = (JSONObject) JSONValue.parseWithException(filter);
@@ -154,7 +169,7 @@ public class Cache {
 			}
 		}
 		
-		int key = (a+b+c+d)*e;
+		int key = ((a*b*e)+(c*d));
 		return key;
 		
 	}

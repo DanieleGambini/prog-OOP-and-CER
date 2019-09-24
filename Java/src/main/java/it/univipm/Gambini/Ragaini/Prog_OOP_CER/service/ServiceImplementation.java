@@ -11,7 +11,7 @@ import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Data;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Dataset;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Metadata;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.scratch.Proof_Conversion;
-import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Azure;
+import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Cache;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.ClassTo;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Downloader;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility.Filter;
@@ -88,18 +88,10 @@ public class ServiceImplementation implements RequestService{
 	
 	/* 
 	 * Implementazione del metodo statsRequestFilter presente nella classe RequestController.
-	 * Controlla se la stringa contente il filtro è vuota:
-	 * in caso affermativo chiama il metodo sendPost della classe Azure e fornisce come parametro il dataset di riferimento,
-	 * in caso negativo chiama il metodo sendPost della classe Azure e fornisce come parametro il sottoinsieme relativo al filtro immesso.
 	 */
 	@Override
 	public String statsRequestFilter(String filter) {
-		if (filter.isEmpty()) {
-			return Azure.sendPost(ClassTo.Json(dataset.getData()), filter);
-		}
-		else {
-		String dataFiltered = Filter.Controller(dataset.getData(), filter);
-		return Azure.sendPost(dataFiltered, filter);
-		}
+		return Cache.controller(dataset.getData(), filter); 
+
 	}
 }

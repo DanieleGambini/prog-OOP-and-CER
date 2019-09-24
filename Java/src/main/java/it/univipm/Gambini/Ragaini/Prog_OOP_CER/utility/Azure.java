@@ -23,6 +23,7 @@ public class Azure {
 	public static String sendPost(String data, String filter) {
 
 		String urlParameters = "&FILTER=" + filter.replace(" ","");
+		//String urlParameters = "?FILTER=" + filter.replace(" ","");
 		System.out.println(filter);
 		byte[] postData = data.getBytes(StandardCharsets.UTF_8);
 		int postDataLength = postData.length;
@@ -74,7 +75,7 @@ public class Azure {
 			e.printStackTrace();
 		}
 		System.out.println("\nSending 'POST' request to URL : " + url);
-		System.out.println("Parameters : NONE");// + urlParameters);
+		System.out.println("Parameters :" + urlParameters);
 		System.out.println("Response Code : " + responseCode);
 
 		BufferedReader in = null;
