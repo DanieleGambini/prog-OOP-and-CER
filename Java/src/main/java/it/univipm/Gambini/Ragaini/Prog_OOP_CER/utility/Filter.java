@@ -49,9 +49,7 @@ public class Filter {
 		else if (filter.containsKey("$and")) {
 			List<List<String>> initialized = initializer(filter, "$and");
 			subset = AND(subset, initialized.get(0) , initialized.get(1));
-		} else {
-			throw new IllegalArgumentException("Error: operation insered not valid");
-			}
+		}
 
 		if (filter.containsKey("$start") || filter.containsKey("$end")) {
 			if ( filter.containsKey("$start")) {

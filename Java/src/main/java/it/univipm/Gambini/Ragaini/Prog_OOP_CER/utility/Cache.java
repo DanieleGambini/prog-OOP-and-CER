@@ -20,7 +20,7 @@ import org.json.simple.parser.ParseException;
 import it.univipm.Gambini.Ragaini.Prog_OOP_CER.model.Data;
 
 /**
- * Classe che gestisce i la cache per 
+ * Classe che gestisce la cache per le statistiche.
  */
 public class Cache {
 
@@ -29,6 +29,14 @@ public class Cache {
 	static String cachePath = relpath+"cache"+ext;
 	
 	
+	/**
+	 * Questo metodo sulla base delle richieste del client restituisce le statistiche che sono giá state richieste,
+	 * altrimenti inoltra la richiesta ad Azure e restituisce di conseguenza.
+	 * @param data vettore contente tutte le istanze della classe Data ricavate dal dataset di riferimento
+	 * @param filter filterRequest stringa di oggetti formato json contenente i filtri inoltrati dall'utente
+	 * { "$": [ {"GEO": ["", "", ... , "" }, { "OBJ": ["", "", ... , ""] } ], "$start": "", "$end": "" }
+	 * @return string contenente le statistiche del dataset richiesto
+	 */
 	public static String controller(Vector<Data> data, String filter) {
 		
 		JSONObject cache = cacheOpen();
@@ -50,6 +58,10 @@ public class Cache {
 	}
 
 
+	/** Metodo ausiliario che apre un file indicandone path e nome.
+	 * @param fileName path del file system e nome del file.
+	 * @return stringa contenente l’oggetto del file.
+	 */
 	private static String FileOpen(String fileName) {
 		String pathFile = fileName;
 		File file = new File(pathFile);
@@ -70,6 +82,9 @@ public class Cache {
 		return f;
 	}
 
+	/** Metodo ausiliario che restituisce il contenuto del file cache e ne restituisce il contenuto in formato json.
+	 * @return oggetto formato json.
+	 */
 	private static JSONObject cacheOpen() {
 		File file = new File(relpath+"cache"+ext);
 		String line = new String();
@@ -90,6 +105,10 @@ public class Cache {
 		return cache;
 	}
 
+	/** Metodo ausiliario che scrive su file il conenuto che gli viene fornito in un file.
+	 * @param data stringa oggetto che si vuole scrivere in memoria di massa.
+	 * @param fileName stringa che specifica il percorso e il nome del file.
+	 */
 	private static void writeOnFile(String data, String fileName) {
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "utf-8"))) {
 			writer.write(data);
@@ -102,6 +121,11 @@ public class Cache {
 		}
 	}
 	
+	/** Metodo ausiliario che crea un nuovo file e che viene inserito nella tabella degli elementi presenti nella cache.
+	 * @param cache oggetto json degli elementi presenti.
+	 * @param stats contenuto json che deve essere scritto su file.
+	 * @param key stringa che funge da chiave per la cache.
+	 */
 	@SuppressWarnings("unchecked")
 	private static void newFileCache(JSONObject cache, String stats, String key) {
 		String fileName = relpath + key + ext;
@@ -110,6 +134,10 @@ public class Cache {
 		writeOnFile(stats, fileName);
 		}
 	
+	/** Metodo ausiliario che restituisce l’operazione logica presente nel filtro.
+	 * @param operation oggetto json che é presente nel filtro.
+	 * @return stringa dell’operazione logica corrispondente.
+	 */
 	private static String opSelector(JSONObject operation) {
 		
 		if (operation.containsKey("$in")) {
@@ -126,6 +154,10 @@ public class Cache {
 		}
 	}
 	
+	/** Metodo ausiliario che genera una chiave identificativa.
+	 * @param filter stringa del filtro inoltrato.
+	 * @return intero che rappresenta la chiave generata.
+	 */
 	private static int keyGenerator(String filter) {
 		JSONObject operation = new JSONObject();
 		try {

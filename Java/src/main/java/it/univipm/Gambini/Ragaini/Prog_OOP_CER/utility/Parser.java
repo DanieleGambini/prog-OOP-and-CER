@@ -19,7 +19,6 @@ public class Parser {
 	
 	final static String COMMA_DELIMITER = ",";
 	final static String SEMICOLON_DELIMITER = ";";
-	//static Dataset dataset;
 
 	/**
 	 * Metodo che effettua il parsing di un file CSV utilizzando come delimitatori: comma(,) e semicolon(;)

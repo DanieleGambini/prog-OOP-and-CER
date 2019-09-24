@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility","l":"Cache"}]

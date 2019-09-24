@@ -31,7 +31,7 @@ public class Metadata {
 	 * @param data istanza della classe Data
 	 * @return stringa in formato json che contiene nome, tipo e valore degli attributi della classe di riferimento.
 	 */
-	public static String MetadataGeneretor(Header header, Data data) {
+	public static String metadataGeneretor(Header header, Data data) {
 		// call getter methods to get class attributes values of the header
 		ArrayList<String> getterResults = new ArrayList<>();
 		try {

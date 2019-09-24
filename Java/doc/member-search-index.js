@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility","c":"Cache","l":"Cache()","url":"%3Cinit%3E()"},{"p":"it.univipm.Gambini.Ragaini.Prog_OOP_CER.utility","c":"Cache","l":"controller(Vector<Data>, String)","url":"controller(java.util.Vector,java.lang.String)"}]

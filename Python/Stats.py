@@ -5,10 +5,6 @@ import math
 
 def Parser(dataset):
     DataList =[]
-
-    #with open("dataset.json","r") as file:
-    #    parse = json.load(file)
-    
     parsed = json.loads(dataset)
     for row in parsed:
         DataList.append(row)
@@ -30,7 +26,7 @@ def statsController(dataset, filtro):
 def jsonRowsComposer(lista, filtro):
     listReturn = []
     startYear=2000
-    if filtro is not None: 
+    if '$start' in filtro: 
         startYear = int(filtro['$start'])
     
     listReturn.append(filtro)
@@ -121,13 +117,3 @@ def minColumns(lista):
     for column in range(len(lista[0]['timePeriod'])):
         l.append(lista[0]['timePeriod'][column])
     return min(l)
-
-
-'''
-dataset = '[{"freq":"A","geo":"ES","unit":"MEUR_KP_PRE","objective":"TOTAL","timePeriod":[163.695,439.442,466.17,542.419,939.345,727.648,725.043,604.866,534.863,697.641,700.695,559.535,536.094,616.844,518.538]}]'
-
-filtro = '{ "$and": [ {"GEO": ["ES"] }, { "OBJ": ["TOTAL"] } ], "$start": "2002", "$end": "2016" }'
-
-r = statsController(dataset, filtro)
-print(r)
-'''

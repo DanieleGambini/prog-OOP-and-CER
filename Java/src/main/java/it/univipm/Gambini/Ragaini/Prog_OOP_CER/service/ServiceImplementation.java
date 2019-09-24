@@ -38,7 +38,7 @@ public class ServiceImplementation implements RequestService{
 	@Override
 	public String metadataRequest() {
 		Data data = new Data();
-		return Metadata.MetadataGeneretor(dataset.getHeader(), data);
+		return Metadata.metadataGeneretor(dataset.getHeader(), data);
 	}
 	
 	/* Implementazione del metodo dataRequest() chiamato nella classe RequestController */
